@@ -6,11 +6,11 @@ package net.badata.protobuf.converter.proto;
 public final class MultiMappingProto {
   private MultiMappingProto() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      com.google.protobuf.ExtensionRegistryLite registry) {
   }
   public interface MultiMappingFirstOrBuilder extends
       // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.MultiMappingFirst)
-      com.google.protobuf.MessageOrBuilder {
+      com.google.protobuf.MessageLiteOrBuilder {
 
     /**
      * <code>optional int32 intValue = 1;</code>
@@ -26,76 +26,12 @@ public final class MultiMappingProto {
    * Protobuf type {@code net.badata.protobuf.converter.proto.MultiMappingFirst}
    */
   public  static final class MultiMappingFirst extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageLite<
+          MultiMappingFirst, MultiMappingFirst.Builder> implements
       // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.MultiMappingFirst)
       MultiMappingFirstOrBuilder {
-    // Use MultiMappingFirst.newBuilder() to construct.
-    private MultiMappingFirst(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-    }
     private MultiMappingFirst() {
-      intValue_ = 0;
-      longValue_ = 0L;
     }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private MultiMappingFirst(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-
-              intValue_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              longValue_ = input.readInt64();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw new RuntimeException(e.setUnfinishedMessage(this));
-      } catch (java.io.IOException e) {
-        throw new RuntimeException(
-            new com.google.protobuf.InvalidProtocolBufferException(
-                e.getMessage()).setUnfinishedMessage(this));
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.class, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder.class);
-    }
-
     public static final int INTVALUE_FIELD_NUMBER = 1;
     private int intValue_;
     /**
@@ -103,6 +39,20 @@ public final class MultiMappingProto {
      */
     public int getIntValue() {
       return intValue_;
+    }
+    /**
+     * <code>optional int32 intValue = 1;</code>
+     */
+    private void setIntValue(int value) {
+      
+      intValue_ = value;
+    }
+    /**
+     * <code>optional int32 intValue = 1;</code>
+     */
+    private void clearIntValue() {
+      
+      intValue_ = 0;
     }
 
     public static final int LONGVALUE_FIELD_NUMBER = 2;
@@ -113,15 +63,19 @@ public final class MultiMappingProto {
     public long getLongValue() {
       return longValue_;
     }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
+    /**
+     * <code>optional int64 longValue = 2;</code>
+     */
+    private void setLongValue(long value) {
+      
+      longValue_ = value;
+    }
+    /**
+     * <code>optional int64 longValue = 2;</code>
+     */
+    private void clearLongValue() {
+      
+      longValue_ = 0L;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
@@ -135,7 +89,7 @@ public final class MultiMappingProto {
     }
 
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -147,304 +101,246 @@ public final class MultiMappingProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, longValue_);
       }
-      memoizedSize = size;
+      memoizedSerializedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
     public static Builder newBuilder(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
 
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code net.badata.protobuf.converter.proto.MultiMappingFirst}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst, Builder> implements
         // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.MultiMappingFirst)
         net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirstOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.class, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder.class);
-      }
-
       // Construct using net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        super(DEFAULT_INSTANCE);
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        intValue_ = 0;
 
-        longValue_ = 0L;
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_descriptor;
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst getDefaultInstanceForType() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.getDefaultInstance();
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst build() {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst buildPartial() {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst result = new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst(this);
-        result.intValue_ = intValue_;
-        result.longValue_ = longValue_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst) {
-          return mergeFrom((net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst other) {
-        if (other == net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.getDefaultInstance()) return this;
-        if (other.getIntValue() != 0) {
-          setIntValue(other.getIntValue());
-        }
-        if (other.getLongValue() != 0L) {
-          setLongValue(other.getLongValue());
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int intValue_ ;
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public int getIntValue() {
-        return intValue_;
+        return instance.getIntValue();
       }
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public Builder setIntValue(int value) {
-        
-        intValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setIntValue(value);
         return this;
       }
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public Builder clearIntValue() {
-        
-        intValue_ = 0;
-        onChanged();
+        copyOnWrite();
+        instance.clearIntValue();
         return this;
       }
 
-      private long longValue_ ;
       /**
        * <code>optional int64 longValue = 2;</code>
        */
       public long getLongValue() {
-        return longValue_;
+        return instance.getLongValue();
       }
       /**
        * <code>optional int64 longValue = 2;</code>
        */
       public Builder setLongValue(long value) {
-        
-        longValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setLongValue(value);
         return this;
       }
       /**
        * <code>optional int64 longValue = 2;</code>
        */
       public Builder clearLongValue() {
-        
-        longValue_ = 0L;
-        onChanged();
+        copyOnWrite();
+        instance.clearLongValue();
         return this;
       }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
 
       // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.MultiMappingFirst)
     }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst other = (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst) arg1;
+          intValue_ = visitor.visitInt(intValue_ != 0, intValue_,
+              other.intValue_ != 0, other.intValue_);
+          longValue_ = visitor.visitLong(longValue_ != 0L, longValue_,
+              other.longValue_ != 0L, other.longValue_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  intValue_ = input.readInt32();
+                  break;
+                }
+                case 16: {
+
+                  longValue_ = input.readInt64();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
 
     // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.MultiMappingFirst)
     private static final net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst();
+      DEFAULT_INSTANCE = new MultiMappingFirst();
+      DEFAULT_INSTANCE.makeImmutable();
     }
 
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<MultiMappingFirst>
-        PARSER = new com.google.protobuf.AbstractParser<MultiMappingFirst>() {
-      public MultiMappingFirst parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        try {
-          return new MultiMappingFirst(input, extensionRegistry);
-        } catch (RuntimeException e) {
-          if (e.getCause() instanceof
-              com.google.protobuf.InvalidProtocolBufferException) {
-            throw (com.google.protobuf.InvalidProtocolBufferException)
-                e.getCause();
-          }
-          throw e;
-        }
-      }
-    };
+    private static volatile com.google.protobuf.Parser<MultiMappingFirst> PARSER;
 
     public static com.google.protobuf.Parser<MultiMappingFirst> parser() {
-      return PARSER;
+      return DEFAULT_INSTANCE.getParserForType();
     }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MultiMappingFirst> getParserForType() {
-      return PARSER;
-    }
-
-    public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
   public interface MultiMappingSecondOrBuilder extends
       // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.MultiMappingSecond)
-      com.google.protobuf.MessageOrBuilder {
+      com.google.protobuf.MessageLiteOrBuilder {
 
     /**
      * <code>optional int32 intValue = 1;</code>
@@ -470,83 +366,13 @@ public final class MultiMappingProto {
    * Protobuf type {@code net.badata.protobuf.converter.proto.MultiMappingSecond}
    */
   public  static final class MultiMappingSecond extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageLite<
+          MultiMappingSecond, MultiMappingSecond.Builder> implements
       // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.MultiMappingSecond)
       MultiMappingSecondOrBuilder {
-    // Use MultiMappingSecond.newBuilder() to construct.
-    private MultiMappingSecond(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-    }
     private MultiMappingSecond() {
-      intValue_ = 0;
-      longValueChanged_ = 0L;
       unusableValue_ = "";
     }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private MultiMappingSecond(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-
-              intValue_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              longValueChanged_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              String s = input.readStringRequireUtf8();
-
-              unusableValue_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw new RuntimeException(e.setUnfinishedMessage(this));
-      } catch (java.io.IOException e) {
-        throw new RuntimeException(
-            new com.google.protobuf.InvalidProtocolBufferException(
-                e.getMessage()).setUnfinishedMessage(this));
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.class, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder.class);
-    }
-
     public static final int INTVALUE_FIELD_NUMBER = 1;
     private int intValue_;
     /**
@@ -554,6 +380,20 @@ public final class MultiMappingProto {
      */
     public int getIntValue() {
       return intValue_;
+    }
+    /**
+     * <code>optional int32 intValue = 1;</code>
+     */
+    private void setIntValue(int value) {
+      
+      intValue_ = value;
+    }
+    /**
+     * <code>optional int32 intValue = 1;</code>
+     */
+    private void clearIntValue() {
+      
+      intValue_ = 0;
     }
 
     public static final int LONGVALUECHANGED_FIELD_NUMBER = 2;
@@ -564,49 +404,65 @@ public final class MultiMappingProto {
     public long getLongValueChanged() {
       return longValueChanged_;
     }
+    /**
+     * <code>optional int64 longValueChanged = 2;</code>
+     */
+    private void setLongValueChanged(long value) {
+      
+      longValueChanged_ = value;
+    }
+    /**
+     * <code>optional int64 longValueChanged = 2;</code>
+     */
+    private void clearLongValueChanged() {
+      
+      longValueChanged_ = 0L;
+    }
 
     public static final int UNUSABLEVALUE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object unusableValue_;
+    private java.lang.String unusableValue_;
     /**
      * <code>optional string unusableValue = 3;</code>
      */
     public java.lang.String getUnusableValue() {
-      java.lang.Object ref = unusableValue_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        unusableValue_ = s;
-        return s;
-      }
+      return unusableValue_;
     }
     /**
      * <code>optional string unusableValue = 3;</code>
      */
     public com.google.protobuf.ByteString
         getUnusableValueBytes() {
-      java.lang.Object ref = unusableValue_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        unusableValue_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+      return com.google.protobuf.ByteString.copyFromUtf8(unusableValue_);
     }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
+    /**
+     * <code>optional string unusableValue = 3;</code>
+     */
+    private void setUnusableValue(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      unusableValue_ = value;
+    }
+    /**
+     * <code>optional string unusableValue = 3;</code>
+     */
+    private void clearUnusableValue() {
+      
+      unusableValue_ = getDefaultInstance().getUnusableValue();
+    }
+    /**
+     * <code>optional string unusableValue = 3;</code>
+     */
+    private void setUnusableValueBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      unusableValue_ = value.toStringUtf8();
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
@@ -617,13 +473,13 @@ public final class MultiMappingProto {
       if (longValueChanged_ != 0L) {
         output.writeInt64(2, longValueChanged_);
       }
-      if (!getUnusableValueBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 3, unusableValue_);
+      if (!unusableValue_.isEmpty()) {
+        output.writeString(3, getUnusableValue());
       }
     }
 
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -635,306 +491,170 @@ public final class MultiMappingProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, longValueChanged_);
       }
-      if (!getUnusableValueBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, unusableValue_);
+      if (!unusableValue_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(3, getUnusableValue());
       }
-      memoizedSize = size;
+      memoizedSerializedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
     public static Builder newBuilder(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
 
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code net.badata.protobuf.converter.proto.MultiMappingSecond}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond, Builder> implements
         // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.MultiMappingSecond)
         net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecondOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.class, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder.class);
-      }
-
       // Construct using net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        super(DEFAULT_INSTANCE);
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        intValue_ = 0;
 
-        longValueChanged_ = 0L;
-
-        unusableValue_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_descriptor;
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond getDefaultInstanceForType() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.getDefaultInstance();
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond build() {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond buildPartial() {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond result = new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond(this);
-        result.intValue_ = intValue_;
-        result.longValueChanged_ = longValueChanged_;
-        result.unusableValue_ = unusableValue_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond) {
-          return mergeFrom((net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond other) {
-        if (other == net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.getDefaultInstance()) return this;
-        if (other.getIntValue() != 0) {
-          setIntValue(other.getIntValue());
-        }
-        if (other.getLongValueChanged() != 0L) {
-          setLongValueChanged(other.getLongValueChanged());
-        }
-        if (!other.getUnusableValue().isEmpty()) {
-          unusableValue_ = other.unusableValue_;
-          onChanged();
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int intValue_ ;
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public int getIntValue() {
-        return intValue_;
+        return instance.getIntValue();
       }
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public Builder setIntValue(int value) {
-        
-        intValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setIntValue(value);
         return this;
       }
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public Builder clearIntValue() {
-        
-        intValue_ = 0;
-        onChanged();
+        copyOnWrite();
+        instance.clearIntValue();
         return this;
       }
 
-      private long longValueChanged_ ;
       /**
        * <code>optional int64 longValueChanged = 2;</code>
        */
       public long getLongValueChanged() {
-        return longValueChanged_;
+        return instance.getLongValueChanged();
       }
       /**
        * <code>optional int64 longValueChanged = 2;</code>
        */
       public Builder setLongValueChanged(long value) {
-        
-        longValueChanged_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setLongValueChanged(value);
         return this;
       }
       /**
        * <code>optional int64 longValueChanged = 2;</code>
        */
       public Builder clearLongValueChanged() {
-        
-        longValueChanged_ = 0L;
-        onChanged();
+        copyOnWrite();
+        instance.clearLongValueChanged();
         return this;
       }
 
-      private java.lang.Object unusableValue_ = "";
       /**
        * <code>optional string unusableValue = 3;</code>
        */
       public java.lang.String getUnusableValue() {
-        java.lang.Object ref = unusableValue_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          unusableValue_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+        return instance.getUnusableValue();
       }
       /**
        * <code>optional string unusableValue = 3;</code>
        */
       public com.google.protobuf.ByteString
           getUnusableValueBytes() {
-        java.lang.Object ref = unusableValue_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          unusableValue_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+        return instance.getUnusableValueBytes();
       }
       /**
        * <code>optional string unusableValue = 3;</code>
        */
       public Builder setUnusableValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        unusableValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setUnusableValue(value);
         return this;
       }
       /**
        * <code>optional string unusableValue = 3;</code>
        */
       public Builder clearUnusableValue() {
-        
-        unusableValue_ = getDefaultInstance().getUnusableValue();
-        onChanged();
+        copyOnWrite();
+        instance.clearUnusableValue();
         return this;
       }
       /**
@@ -942,76 +662,127 @@ public final class MultiMappingProto {
        */
       public Builder setUnusableValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        unusableValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setUnusableValueBytes(value);
         return this;
       }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
 
       // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.MultiMappingSecond)
     }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond other = (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond) arg1;
+          intValue_ = visitor.visitInt(intValue_ != 0, intValue_,
+              other.intValue_ != 0, other.intValue_);
+          longValueChanged_ = visitor.visitLong(longValueChanged_ != 0L, longValueChanged_,
+              other.longValueChanged_ != 0L, other.longValueChanged_);
+          unusableValue_ = visitor.visitString(!unusableValue_.isEmpty(), unusableValue_,
+              !other.unusableValue_.isEmpty(), other.unusableValue_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  intValue_ = input.readInt32();
+                  break;
+                }
+                case 16: {
+
+                  longValueChanged_ = input.readInt64();
+                  break;
+                }
+                case 26: {
+                  String s = input.readStringRequireUtf8();
+
+                  unusableValue_ = s;
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
 
     // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.MultiMappingSecond)
     private static final net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond();
+      DEFAULT_INSTANCE = new MultiMappingSecond();
+      DEFAULT_INSTANCE.makeImmutable();
     }
 
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<MultiMappingSecond>
-        PARSER = new com.google.protobuf.AbstractParser<MultiMappingSecond>() {
-      public MultiMappingSecond parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        try {
-          return new MultiMappingSecond(input, extensionRegistry);
-        } catch (RuntimeException e) {
-          if (e.getCause() instanceof
-              com.google.protobuf.InvalidProtocolBufferException) {
-            throw (com.google.protobuf.InvalidProtocolBufferException)
-                e.getCause();
-          }
-          throw e;
-        }
-      }
-    };
+    private static volatile com.google.protobuf.Parser<MultiMappingSecond> PARSER;
 
     public static com.google.protobuf.Parser<MultiMappingSecond> parser() {
-      return PARSER;
+      return DEFAULT_INSTANCE.getParserForType();
     }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MultiMappingSecond> getParserForType() {
-      return PARSER;
-    }
-
-    public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
   public interface MultiMappingTestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.MultiMappingTest)
-      com.google.protobuf.MessageOrBuilder {
+      com.google.protobuf.MessageLiteOrBuilder {
 
     /**
      * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
@@ -1021,10 +792,6 @@ public final class MultiMappingProto {
      * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
      */
     net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst getMultiMappingValue();
-    /**
-     * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
-     */
-    net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirstOrBuilder getMultiMappingValueOrBuilder();
 
     /**
      * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
@@ -1039,104 +806,18 @@ public final class MultiMappingProto {
      * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
      */
     int getMultiMappingListValueCount();
-    /**
-     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
-     */
-    java.util.List<? extends net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecondOrBuilder> 
-        getMultiMappingListValueOrBuilderList();
-    /**
-     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
-     */
-    net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecondOrBuilder getMultiMappingListValueOrBuilder(
-        int index);
   }
   /**
    * Protobuf type {@code net.badata.protobuf.converter.proto.MultiMappingTest}
    */
   public  static final class MultiMappingTest extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageLite<
+          MultiMappingTest, MultiMappingTest.Builder> implements
       // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.MultiMappingTest)
       MultiMappingTestOrBuilder {
-    // Use MultiMappingTest.newBuilder() to construct.
-    private MultiMappingTest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-    }
     private MultiMappingTest() {
-      multiMappingListValue_ = java.util.Collections.emptyList();
+      multiMappingListValue_ = emptyProtobufList();
     }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private MultiMappingTest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder subBuilder = null;
-              if (multiMappingValue_ != null) {
-                subBuilder = multiMappingValue_.toBuilder();
-              }
-              multiMappingValue_ = input.readMessage(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(multiMappingValue_);
-                multiMappingValue_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                multiMappingListValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              multiMappingListValue_.add(input.readMessage(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.parser(), extensionRegistry));
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw new RuntimeException(e.setUnfinishedMessage(this));
-      } catch (java.io.IOException e) {
-        throw new RuntimeException(
-            new com.google.protobuf.InvalidProtocolBufferException(
-                e.getMessage()).setUnfinishedMessage(this));
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          multiMappingListValue_ = java.util.Collections.unmodifiableList(multiMappingListValue_);
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest.class, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest.Builder.class);
-    }
-
     private int bitField0_;
     public static final int MULTIMAPPINGVALUE_FIELD_NUMBER = 1;
     private net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst multiMappingValue_;
@@ -1155,12 +836,43 @@ public final class MultiMappingProto {
     /**
      * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
      */
-    public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirstOrBuilder getMultiMappingValueOrBuilder() {
-      return getMultiMappingValue();
+    private void setMultiMappingValue(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      multiMappingValue_ = value;
+      
+      }
+    /**
+     * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
+     */
+    private void setMultiMappingValue(
+        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder builderForValue) {
+      multiMappingValue_ = builderForValue.build();
+      
+    }
+    /**
+     * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
+     */
+    private void mergeMultiMappingValue(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst value) {
+      if (multiMappingValue_ != null &&
+          multiMappingValue_ != net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.getDefaultInstance()) {
+        multiMappingValue_ =
+          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.newBuilder(multiMappingValue_).mergeFrom(value).buildPartial();
+      } else {
+        multiMappingValue_ = value;
+      }
+      
+    }
+    /**
+     * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
+     */
+    private void clearMultiMappingValue() {  multiMappingValue_ = null;
+      
     }
 
     public static final int MULTIMAPPINGLISTVALUE_FIELD_NUMBER = 2;
-    private java.util.List<net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond> multiMappingListValue_;
+    private com.google.protobuf.Internal.ProtobufList<net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond> multiMappingListValue_;
     /**
      * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
      */
@@ -1193,15 +905,90 @@ public final class MultiMappingProto {
         int index) {
       return multiMappingListValue_.get(index);
     }
+    private void ensureMultiMappingListValueIsMutable() {
+      if (!multiMappingListValue_.isModifiable()) {
+        multiMappingListValue_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(multiMappingListValue_);
+       }
+    }
 
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void setMultiMappingListValue(
+        int index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureMultiMappingListValueIsMutable();
+      multiMappingListValue_.set(index, value);
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void setMultiMappingListValue(
+        int index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder builderForValue) {
+      ensureMultiMappingListValueIsMutable();
+      multiMappingListValue_.set(index, builderForValue.build());
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void addMultiMappingListValue(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureMultiMappingListValueIsMutable();
+      multiMappingListValue_.add(value);
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void addMultiMappingListValue(
+        int index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureMultiMappingListValueIsMutable();
+      multiMappingListValue_.add(index, value);
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void addMultiMappingListValue(
+        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder builderForValue) {
+      ensureMultiMappingListValueIsMutable();
+      multiMappingListValue_.add(builderForValue.build());
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void addMultiMappingListValue(
+        int index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder builderForValue) {
+      ensureMultiMappingListValueIsMutable();
+      multiMappingListValue_.add(index, builderForValue.build());
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void addAllMultiMappingListValue(
+        java.lang.Iterable<? extends net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond> values) {
+      ensureMultiMappingListValueIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, multiMappingListValue_);
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void clearMultiMappingListValue() {
+      multiMappingListValue_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
+     */
+    private void removeMultiMappingListValue(int index) {
+      ensureMultiMappingListValueIsMutable();
+      multiMappingListValue_.remove(index);
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
@@ -1215,7 +1002,7 @@ public final class MultiMappingProto {
     }
 
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -1227,414 +1014,162 @@ public final class MultiMappingProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, multiMappingListValue_.get(i));
       }
-      memoizedSize = size;
+      memoizedSerializedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
     public static Builder newBuilder(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
 
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code net.badata.protobuf.converter.proto.MultiMappingTest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest, Builder> implements
         // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.MultiMappingTest)
         net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest.class, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest.Builder.class);
-      }
-
       // Construct using net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        super(DEFAULT_INSTANCE);
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getMultiMappingListValueFieldBuilder();
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        if (multiMappingValueBuilder_ == null) {
-          multiMappingValue_ = null;
-        } else {
-          multiMappingValue_ = null;
-          multiMappingValueBuilder_ = null;
-        }
-        if (multiMappingListValueBuilder_ == null) {
-          multiMappingListValue_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        } else {
-          multiMappingListValueBuilder_.clear();
-        }
-        return this;
-      }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_descriptor;
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest getDefaultInstanceForType() {
-        return net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest.getDefaultInstance();
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest build() {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest buildPartial() {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest result = new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (multiMappingValueBuilder_ == null) {
-          result.multiMappingValue_ = multiMappingValue_;
-        } else {
-          result.multiMappingValue_ = multiMappingValueBuilder_.build();
-        }
-        if (multiMappingListValueBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            multiMappingListValue_ = java.util.Collections.unmodifiableList(multiMappingListValue_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.multiMappingListValue_ = multiMappingListValue_;
-        } else {
-          result.multiMappingListValue_ = multiMappingListValueBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest) {
-          return mergeFrom((net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest other) {
-        if (other == net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest.getDefaultInstance()) return this;
-        if (other.hasMultiMappingValue()) {
-          mergeMultiMappingValue(other.getMultiMappingValue());
-        }
-        if (multiMappingListValueBuilder_ == null) {
-          if (!other.multiMappingListValue_.isEmpty()) {
-            if (multiMappingListValue_.isEmpty()) {
-              multiMappingListValue_ = other.multiMappingListValue_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensureMultiMappingListValueIsMutable();
-              multiMappingListValue_.addAll(other.multiMappingListValue_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.multiMappingListValue_.isEmpty()) {
-            if (multiMappingListValueBuilder_.isEmpty()) {
-              multiMappingListValueBuilder_.dispose();
-              multiMappingListValueBuilder_ = null;
-              multiMappingListValue_ = other.multiMappingListValue_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              multiMappingListValueBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getMultiMappingListValueFieldBuilder() : null;
-            } else {
-              multiMappingListValueBuilder_.addAllMessages(other.multiMappingListValue_);
-            }
-          }
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst multiMappingValue_ = null;
-      private com.google.protobuf.SingleFieldBuilder<
-          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirstOrBuilder> multiMappingValueBuilder_;
       /**
        * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
        */
       public boolean hasMultiMappingValue() {
-        return multiMappingValueBuilder_ != null || multiMappingValue_ != null;
+        return instance.hasMultiMappingValue();
       }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
        */
       public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst getMultiMappingValue() {
-        if (multiMappingValueBuilder_ == null) {
-          return multiMappingValue_ == null ? net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.getDefaultInstance() : multiMappingValue_;
-        } else {
-          return multiMappingValueBuilder_.getMessage();
-        }
+        return instance.getMultiMappingValue();
       }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
        */
       public Builder setMultiMappingValue(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst value) {
-        if (multiMappingValueBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          multiMappingValue_ = value;
-          onChanged();
-        } else {
-          multiMappingValueBuilder_.setMessage(value);
-        }
-
+        copyOnWrite();
+        instance.setMultiMappingValue(value);
         return this;
-      }
+        }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
        */
       public Builder setMultiMappingValue(
           net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder builderForValue) {
-        if (multiMappingValueBuilder_ == null) {
-          multiMappingValue_ = builderForValue.build();
-          onChanged();
-        } else {
-          multiMappingValueBuilder_.setMessage(builderForValue.build());
-        }
-
+        copyOnWrite();
+        instance.setMultiMappingValue(builderForValue);
         return this;
       }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
        */
       public Builder mergeMultiMappingValue(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst value) {
-        if (multiMappingValueBuilder_ == null) {
-          if (multiMappingValue_ != null) {
-            multiMappingValue_ =
-              net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.newBuilder(multiMappingValue_).mergeFrom(value).buildPartial();
-          } else {
-            multiMappingValue_ = value;
-          }
-          onChanged();
-        } else {
-          multiMappingValueBuilder_.mergeFrom(value);
-        }
-
+        copyOnWrite();
+        instance.mergeMultiMappingValue(value);
         return this;
       }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
        */
-      public Builder clearMultiMappingValue() {
-        if (multiMappingValueBuilder_ == null) {
-          multiMappingValue_ = null;
-          onChanged();
-        } else {
-          multiMappingValue_ = null;
-          multiMappingValueBuilder_ = null;
-        }
-
+      public Builder clearMultiMappingValue() {  copyOnWrite();
+        instance.clearMultiMappingValue();
         return this;
       }
-      /**
-       * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
-       */
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder getMultiMappingValueBuilder() {
-        
-        onChanged();
-        return getMultiMappingValueFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
-       */
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirstOrBuilder getMultiMappingValueOrBuilder() {
-        if (multiMappingValueBuilder_ != null) {
-          return multiMappingValueBuilder_.getMessageOrBuilder();
-        } else {
-          return multiMappingValue_ == null ?
-              net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.getDefaultInstance() : multiMappingValue_;
-        }
-      }
-      /**
-       * <code>optional .net.badata.protobuf.converter.proto.MultiMappingFirst multiMappingValue = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirstOrBuilder> 
-          getMultiMappingValueFieldBuilder() {
-        if (multiMappingValueBuilder_ == null) {
-          multiMappingValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirstOrBuilder>(
-                  getMultiMappingValue(),
-                  getParentForChildren(),
-                  isClean());
-          multiMappingValue_ = null;
-        }
-        return multiMappingValueBuilder_;
-      }
-
-      private java.util.List<net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond> multiMappingListValue_ =
-        java.util.Collections.emptyList();
-      private void ensureMultiMappingListValueIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          multiMappingListValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond>(multiMappingListValue_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecondOrBuilder> multiMappingListValueBuilder_;
 
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
        */
       public java.util.List<net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond> getMultiMappingListValueList() {
-        if (multiMappingListValueBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(multiMappingListValue_);
-        } else {
-          return multiMappingListValueBuilder_.getMessageList();
-        }
+        return java.util.Collections.unmodifiableList(
+            instance.getMultiMappingListValueList());
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
        */
       public int getMultiMappingListValueCount() {
-        if (multiMappingListValueBuilder_ == null) {
-          return multiMappingListValue_.size();
-        } else {
-          return multiMappingListValueBuilder_.getCount();
-        }
-      }
-      /**
+        return instance.getMultiMappingListValueCount();
+      }/**
        * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
        */
       public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond getMultiMappingListValue(int index) {
-        if (multiMappingListValueBuilder_ == null) {
-          return multiMappingListValue_.get(index);
-        } else {
-          return multiMappingListValueBuilder_.getMessage(index);
-        }
+        return instance.getMultiMappingListValue(index);
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
        */
       public Builder setMultiMappingListValue(
           int index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond value) {
-        if (multiMappingListValueBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMultiMappingListValueIsMutable();
-          multiMappingListValue_.set(index, value);
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.setMessage(index, value);
-        }
+        copyOnWrite();
+        instance.setMultiMappingListValue(index, value);
         return this;
       }
       /**
@@ -1642,29 +1177,16 @@ public final class MultiMappingProto {
        */
       public Builder setMultiMappingListValue(
           int index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder builderForValue) {
-        if (multiMappingListValueBuilder_ == null) {
-          ensureMultiMappingListValueIsMutable();
-          multiMappingListValue_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.setMessage(index, builderForValue.build());
-        }
+        copyOnWrite();
+        instance.setMultiMappingListValue(index, builderForValue);
         return this;
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
        */
       public Builder addMultiMappingListValue(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond value) {
-        if (multiMappingListValueBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMultiMappingListValueIsMutable();
-          multiMappingListValue_.add(value);
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.addMessage(value);
-        }
+        copyOnWrite();
+        instance.addMultiMappingListValue(value);
         return this;
       }
       /**
@@ -1672,16 +1194,8 @@ public final class MultiMappingProto {
        */
       public Builder addMultiMappingListValue(
           int index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond value) {
-        if (multiMappingListValueBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureMultiMappingListValueIsMutable();
-          multiMappingListValue_.add(index, value);
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.addMessage(index, value);
-        }
+        copyOnWrite();
+        instance.addMultiMappingListValue(index, value);
         return this;
       }
       /**
@@ -1689,13 +1203,8 @@ public final class MultiMappingProto {
        */
       public Builder addMultiMappingListValue(
           net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder builderForValue) {
-        if (multiMappingListValueBuilder_ == null) {
-          ensureMultiMappingListValueIsMutable();
-          multiMappingListValue_.add(builderForValue.build());
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.addMessage(builderForValue.build());
-        }
+        copyOnWrite();
+        instance.addMultiMappingListValue(builderForValue);
         return this;
       }
       /**
@@ -1703,13 +1212,8 @@ public final class MultiMappingProto {
        */
       public Builder addMultiMappingListValue(
           int index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder builderForValue) {
-        if (multiMappingListValueBuilder_ == null) {
-          ensureMultiMappingListValueIsMutable();
-          multiMappingListValue_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.addMessage(index, builderForValue.build());
-        }
+        copyOnWrite();
+        instance.addMultiMappingListValue(index, builderForValue);
         return this;
       }
       /**
@@ -1717,231 +1221,146 @@ public final class MultiMappingProto {
        */
       public Builder addAllMultiMappingListValue(
           java.lang.Iterable<? extends net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond> values) {
-        if (multiMappingListValueBuilder_ == null) {
-          ensureMultiMappingListValueIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, multiMappingListValue_);
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.addAllMessages(values);
-        }
+        copyOnWrite();
+        instance.addAllMultiMappingListValue(values);
         return this;
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
        */
       public Builder clearMultiMappingListValue() {
-        if (multiMappingListValueBuilder_ == null) {
-          multiMappingListValue_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.clear();
-        }
+        copyOnWrite();
+        instance.clearMultiMappingListValue();
         return this;
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
        */
       public Builder removeMultiMappingListValue(int index) {
-        if (multiMappingListValueBuilder_ == null) {
-          ensureMultiMappingListValueIsMutable();
-          multiMappingListValue_.remove(index);
-          onChanged();
-        } else {
-          multiMappingListValueBuilder_.remove(index);
-        }
+        copyOnWrite();
+        instance.removeMultiMappingListValue(index);
         return this;
       }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
-       */
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder getMultiMappingListValueBuilder(
-          int index) {
-        return getMultiMappingListValueFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
-       */
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecondOrBuilder getMultiMappingListValueOrBuilder(
-          int index) {
-        if (multiMappingListValueBuilder_ == null) {
-          return multiMappingListValue_.get(index);  } else {
-          return multiMappingListValueBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
-       */
-      public java.util.List<? extends net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecondOrBuilder> 
-           getMultiMappingListValueOrBuilderList() {
-        if (multiMappingListValueBuilder_ != null) {
-          return multiMappingListValueBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(multiMappingListValue_);
-        }
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
-       */
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder addMultiMappingListValueBuilder() {
-        return getMultiMappingListValueFieldBuilder().addBuilder(
-            net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
-       */
-      public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder addMultiMappingListValueBuilder(
-          int index) {
-        return getMultiMappingListValueFieldBuilder().addBuilder(
-            index, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.MultiMappingSecond multiMappingListValue = 2;</code>
-       */
-      public java.util.List<net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder> 
-           getMultiMappingListValueBuilderList() {
-        return getMultiMappingListValueFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecondOrBuilder> 
-          getMultiMappingListValueFieldBuilder() {
-        if (multiMappingListValueBuilder_ == null) {
-          multiMappingListValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.Builder, net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecondOrBuilder>(
-                  multiMappingListValue_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
-                  getParentForChildren(),
-                  isClean());
-          multiMappingListValue_ = null;
-        }
-        return multiMappingListValueBuilder_;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
 
       // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.MultiMappingTest)
     }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          multiMappingListValue_.makeImmutable();
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest other = (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest) arg1;
+          multiMappingValue_ = visitor.visitMessage(multiMappingValue_, other.multiMappingValue_);
+          multiMappingListValue_= visitor.visitList(multiMappingListValue_, other.multiMappingListValue_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 10: {
+                  net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.Builder subBuilder = null;
+                  if (multiMappingValue_ != null) {
+                    subBuilder = multiMappingValue_.toBuilder();
+                  }
+                  multiMappingValue_ = input.readMessage(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingFirst.parser(), extensionRegistry);
+                  if (subBuilder != null) {
+                    subBuilder.mergeFrom(multiMappingValue_);
+                    multiMappingValue_ = subBuilder.buildPartial();
+                  }
+
+                  break;
+                }
+                case 18: {
+                  if (!multiMappingListValue_.isModifiable()) {
+                    multiMappingListValue_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(multiMappingListValue_);
+                  }
+                  multiMappingListValue_.add(
+                      input.readMessage(net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingSecond.parser(), extensionRegistry));
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
 
     // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.MultiMappingTest)
     private static final net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest();
+      DEFAULT_INSTANCE = new MultiMappingTest();
+      DEFAULT_INSTANCE.makeImmutable();
     }
 
     public static net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<MultiMappingTest>
-        PARSER = new com.google.protobuf.AbstractParser<MultiMappingTest>() {
-      public MultiMappingTest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        try {
-          return new MultiMappingTest(input, extensionRegistry);
-        } catch (RuntimeException e) {
-          if (e.getCause() instanceof
-              com.google.protobuf.InvalidProtocolBufferException) {
-            throw (com.google.protobuf.InvalidProtocolBufferException)
-                e.getCause();
-          }
-          throw e;
-        }
-      }
-    };
+    private static volatile com.google.protobuf.Parser<MultiMappingTest> PARSER;
 
     public static com.google.protobuf.Parser<MultiMappingTest> parser() {
-      return PARSER;
+      return DEFAULT_INSTANCE.getParserForType();
     }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MultiMappingTest> getParserForType() {
-      return PARSER;
-    }
-
-    public net.badata.protobuf.converter.proto.MultiMappingProto.MultiMappingTest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
   static {
-    java.lang.String[] descriptorData = {
-      "\n\030multi_mapping_test.proto\022#net.badata.p" +
-      "rotobuf.converter.proto\"8\n\021MultiMappingF" +
-      "irst\022\020\n\010intValue\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(" +
-      "\003\"W\n\022MultiMappingSecond\022\020\n\010intValue\030\001 \001(" +
-      "\005\022\030\n\020longValueChanged\030\002 \001(\003\022\025\n\runusableV" +
-      "alue\030\003 \001(\t\"\275\001\n\020MultiMappingTest\022Q\n\021multi" +
-      "MappingValue\030\001 \001(\01326.net.badata.protobuf" +
-      ".converter.proto.MultiMappingFirst\022V\n\025mu" +
-      "ltiMappingListValue\030\002 \003(\01327.net.badata.p" +
-      "rotobuf.converter.proto.MultiMappingSeco",
-      "ndB8\n#net.badata.protobuf.converter.prot" +
-      "oB\021MultiMappingProtob\006proto3"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_net_badata_protobuf_converter_proto_MultiMappingFirst_descriptor,
-        new java.lang.String[] { "IntValue", "LongValue", });
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_net_badata_protobuf_converter_proto_MultiMappingSecond_descriptor,
-        new java.lang.String[] { "IntValue", "LongValueChanged", "UnusableValue", });
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_net_badata_protobuf_converter_proto_MultiMappingTest_descriptor,
-        new java.lang.String[] { "MultiMappingValue", "MultiMappingListValue", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

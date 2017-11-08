@@ -6,11 +6,11 @@ package net.badata.protobuf.converter.proto;
 public final class MappingProto {
   private MappingProto() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      com.google.protobuf.ExtensionRegistryLite registry) {
   }
   public interface NestedTestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.NestedTest)
-      com.google.protobuf.MessageOrBuilder {
+      com.google.protobuf.MessageLiteOrBuilder {
 
     /**
      * <code>optional string stringValue = 1;</code>
@@ -26,363 +26,189 @@ public final class MappingProto {
    * Protobuf type {@code net.badata.protobuf.converter.proto.NestedTest}
    */
   public  static final class NestedTest extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageLite<
+          NestedTest, NestedTest.Builder> implements
       // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.NestedTest)
       NestedTestOrBuilder {
-    // Use NestedTest.newBuilder() to construct.
-    private NestedTest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-    }
     private NestedTest() {
       stringValue_ = "";
     }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private NestedTest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              String s = input.readStringRequireUtf8();
-
-              stringValue_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw new RuntimeException(e.setUnfinishedMessage(this));
-      } catch (java.io.IOException e) {
-        throw new RuntimeException(
-            new com.google.protobuf.InvalidProtocolBufferException(
-                e.getMessage()).setUnfinishedMessage(this));
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_NestedTest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              net.badata.protobuf.converter.proto.MappingProto.NestedTest.class, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder.class);
-    }
-
     public static final int STRINGVALUE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object stringValue_;
+    private java.lang.String stringValue_;
     /**
      * <code>optional string stringValue = 1;</code>
      */
     public java.lang.String getStringValue() {
-      java.lang.Object ref = stringValue_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        stringValue_ = s;
-        return s;
-      }
+      return stringValue_;
     }
     /**
      * <code>optional string stringValue = 1;</code>
      */
     public com.google.protobuf.ByteString
         getStringValueBytes() {
-      java.lang.Object ref = stringValue_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        stringValue_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+      return com.google.protobuf.ByteString.copyFromUtf8(stringValue_);
     }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
+    /**
+     * <code>optional string stringValue = 1;</code>
+     */
+    private void setStringValue(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      stringValue_ = value;
+    }
+    /**
+     * <code>optional string stringValue = 1;</code>
+     */
+    private void clearStringValue() {
+      
+      stringValue_ = getDefaultInstance().getStringValue();
+    }
+    /**
+     * <code>optional string stringValue = 1;</code>
+     */
+    private void setStringValueBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      stringValue_ = value.toStringUtf8();
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getStringValueBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, stringValue_);
+      if (!stringValue_.isEmpty()) {
+        output.writeString(1, getStringValue());
       }
     }
 
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (!getStringValueBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, stringValue_);
+      if (!stringValue_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1, getStringValue());
       }
-      memoizedSize = size;
+      memoizedSerializedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
     public static Builder newBuilder(net.badata.protobuf.converter.proto.MappingProto.NestedTest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
 
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code net.badata.protobuf.converter.proto.NestedTest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          net.badata.protobuf.converter.proto.MappingProto.NestedTest, Builder> implements
         // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.NestedTest)
         net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_NestedTest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                net.badata.protobuf.converter.proto.MappingProto.NestedTest.class, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder.class);
-      }
-
       // Construct using net.badata.protobuf.converter.proto.MappingProto.NestedTest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        super(DEFAULT_INSTANCE);
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        stringValue_ = "";
 
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor;
-      }
-
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTest getDefaultInstanceForType() {
-        return net.badata.protobuf.converter.proto.MappingProto.NestedTest.getDefaultInstance();
-      }
-
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTest build() {
-        net.badata.protobuf.converter.proto.MappingProto.NestedTest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTest buildPartial() {
-        net.badata.protobuf.converter.proto.MappingProto.NestedTest result = new net.badata.protobuf.converter.proto.MappingProto.NestedTest(this);
-        result.stringValue_ = stringValue_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof net.badata.protobuf.converter.proto.MappingProto.NestedTest) {
-          return mergeFrom((net.badata.protobuf.converter.proto.MappingProto.NestedTest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(net.badata.protobuf.converter.proto.MappingProto.NestedTest other) {
-        if (other == net.badata.protobuf.converter.proto.MappingProto.NestedTest.getDefaultInstance()) return this;
-        if (!other.getStringValue().isEmpty()) {
-          stringValue_ = other.stringValue_;
-          onChanged();
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        net.badata.protobuf.converter.proto.MappingProto.NestedTest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (net.badata.protobuf.converter.proto.MappingProto.NestedTest) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object stringValue_ = "";
       /**
        * <code>optional string stringValue = 1;</code>
        */
       public java.lang.String getStringValue() {
-        java.lang.Object ref = stringValue_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          stringValue_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+        return instance.getStringValue();
       }
       /**
        * <code>optional string stringValue = 1;</code>
        */
       public com.google.protobuf.ByteString
           getStringValueBytes() {
-        java.lang.Object ref = stringValue_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          stringValue_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+        return instance.getStringValueBytes();
       }
       /**
        * <code>optional string stringValue = 1;</code>
        */
       public Builder setStringValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        stringValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setStringValue(value);
         return this;
       }
       /**
        * <code>optional string stringValue = 1;</code>
        */
       public Builder clearStringValue() {
-        
-        stringValue_ = getDefaultInstance().getStringValue();
-        onChanged();
+        copyOnWrite();
+        instance.clearStringValue();
         return this;
       }
       /**
@@ -390,76 +216,113 @@ public final class MappingProto {
        */
       public Builder setStringValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        stringValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setStringValueBytes(value);
         return this;
       }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
 
       // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.NestedTest)
     }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new net.badata.protobuf.converter.proto.MappingProto.NestedTest();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          net.badata.protobuf.converter.proto.MappingProto.NestedTest other = (net.badata.protobuf.converter.proto.MappingProto.NestedTest) arg1;
+          stringValue_ = visitor.visitString(!stringValue_.isEmpty(), stringValue_,
+              !other.stringValue_.isEmpty(), other.stringValue_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 10: {
+                  String s = input.readStringRequireUtf8();
+
+                  stringValue_ = s;
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (net.badata.protobuf.converter.proto.MappingProto.NestedTest.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
 
     // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.NestedTest)
     private static final net.badata.protobuf.converter.proto.MappingProto.NestedTest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.MappingProto.NestedTest();
+      DEFAULT_INSTANCE = new NestedTest();
+      DEFAULT_INSTANCE.makeImmutable();
     }
 
     public static net.badata.protobuf.converter.proto.MappingProto.NestedTest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<NestedTest>
-        PARSER = new com.google.protobuf.AbstractParser<NestedTest>() {
-      public NestedTest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        try {
-          return new NestedTest(input, extensionRegistry);
-        } catch (RuntimeException e) {
-          if (e.getCause() instanceof
-              com.google.protobuf.InvalidProtocolBufferException) {
-            throw (com.google.protobuf.InvalidProtocolBufferException)
-                e.getCause();
-          }
-          throw e;
-        }
-      }
-    };
+    private static volatile com.google.protobuf.Parser<NestedTest> PARSER;
 
     public static com.google.protobuf.Parser<NestedTest> parser() {
-      return PARSER;
+      return DEFAULT_INSTANCE.getParserForType();
     }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<NestedTest> getParserForType() {
-      return PARSER;
-    }
-
-    public net.badata.protobuf.converter.proto.MappingProto.NestedTest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
   public interface MappingTestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:net.badata.protobuf.converter.proto.MappingTest)
-      com.google.protobuf.MessageOrBuilder {
+      com.google.protobuf.MessageLiteOrBuilder {
 
     /**
      * <code>optional int32 intValue = 1;</code>
@@ -504,15 +367,11 @@ public final class MappingProto {
      * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
      */
     net.badata.protobuf.converter.proto.MappingProto.NestedTest getNestedValue();
-    /**
-     * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
-     */
-    net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder getNestedValueOrBuilder();
 
     /**
      * <code>repeated string stringListValue = 8;</code>
      */
-    com.google.protobuf.ProtocolStringList
+    java.util.List<String>
         getStringListValueList();
     /**
      * <code>repeated string stringListValue = 8;</code>
@@ -541,154 +400,20 @@ public final class MappingProto {
      * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
      */
     int getNestedListValueCount();
-    /**
-     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
-     */
-    java.util.List<? extends net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder> 
-        getNestedListValueOrBuilderList();
-    /**
-     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
-     */
-    net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder getNestedListValueOrBuilder(
-        int index);
   }
   /**
    * Protobuf type {@code net.badata.protobuf.converter.proto.MappingTest}
    */
   public  static final class MappingTest extends
-      com.google.protobuf.GeneratedMessage implements
+      com.google.protobuf.GeneratedMessageLite<
+          MappingTest, MappingTest.Builder> implements
       // @@protoc_insertion_point(message_implements:net.badata.protobuf.converter.proto.MappingTest)
       MappingTestOrBuilder {
-    // Use MappingTest.newBuilder() to construct.
-    private MappingTest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-    }
     private MappingTest() {
-      intValue_ = 0;
-      longValue_ = 0L;
-      floatValue_ = 0F;
-      doubleValue_ = 0D;
-      booleanValue_ = false;
       stringValue_ = "";
-      stringListValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      nestedListValue_ = java.util.Collections.emptyList();
+      stringListValue_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      nestedListValue_ = emptyProtobufList();
     }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private MappingTest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-
-              intValue_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              longValue_ = input.readInt64();
-              break;
-            }
-            case 29: {
-
-              floatValue_ = input.readFloat();
-              break;
-            }
-            case 33: {
-
-              doubleValue_ = input.readDouble();
-              break;
-            }
-            case 40: {
-
-              booleanValue_ = input.readBool();
-              break;
-            }
-            case 50: {
-              String s = input.readStringRequireUtf8();
-
-              stringValue_ = s;
-              break;
-            }
-            case 58: {
-              net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder subBuilder = null;
-              if (nestedValue_ != null) {
-                subBuilder = nestedValue_.toBuilder();
-              }
-              nestedValue_ = input.readMessage(net.badata.protobuf.converter.proto.MappingProto.NestedTest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(nestedValue_);
-                nestedValue_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-                stringListValue_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000080;
-              }
-              stringListValue_.add(s);
-              break;
-            }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-                nestedListValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.MappingProto.NestedTest>();
-                mutable_bitField0_ |= 0x00000100;
-              }
-              nestedListValue_.add(input.readMessage(net.badata.protobuf.converter.proto.MappingProto.NestedTest.parser(), extensionRegistry));
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw new RuntimeException(e.setUnfinishedMessage(this));
-      } catch (java.io.IOException e) {
-        throw new RuntimeException(
-            new com.google.protobuf.InvalidProtocolBufferException(
-                e.getMessage()).setUnfinishedMessage(this));
-      } finally {
-        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-          stringListValue_ = stringListValue_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-          nestedListValue_ = java.util.Collections.unmodifiableList(nestedListValue_);
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_MappingTest_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_MappingTest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              net.badata.protobuf.converter.proto.MappingProto.MappingTest.class, net.badata.protobuf.converter.proto.MappingProto.MappingTest.Builder.class);
-    }
-
     private int bitField0_;
     public static final int INTVALUE_FIELD_NUMBER = 1;
     private int intValue_;
@@ -697,6 +422,20 @@ public final class MappingProto {
      */
     public int getIntValue() {
       return intValue_;
+    }
+    /**
+     * <code>optional int32 intValue = 1;</code>
+     */
+    private void setIntValue(int value) {
+      
+      intValue_ = value;
+    }
+    /**
+     * <code>optional int32 intValue = 1;</code>
+     */
+    private void clearIntValue() {
+      
+      intValue_ = 0;
     }
 
     public static final int LONGVALUE_FIELD_NUMBER = 2;
@@ -707,6 +446,20 @@ public final class MappingProto {
     public long getLongValue() {
       return longValue_;
     }
+    /**
+     * <code>optional int64 longValue = 2;</code>
+     */
+    private void setLongValue(long value) {
+      
+      longValue_ = value;
+    }
+    /**
+     * <code>optional int64 longValue = 2;</code>
+     */
+    private void clearLongValue() {
+      
+      longValue_ = 0L;
+    }
 
     public static final int FLOATVALUE_FIELD_NUMBER = 3;
     private float floatValue_;
@@ -715,6 +468,20 @@ public final class MappingProto {
      */
     public float getFloatValue() {
       return floatValue_;
+    }
+    /**
+     * <code>optional float floatValue = 3;</code>
+     */
+    private void setFloatValue(float value) {
+      
+      floatValue_ = value;
+    }
+    /**
+     * <code>optional float floatValue = 3;</code>
+     */
+    private void clearFloatValue() {
+      
+      floatValue_ = 0F;
     }
 
     public static final int DOUBLEVALUE_FIELD_NUMBER = 4;
@@ -725,6 +492,20 @@ public final class MappingProto {
     public double getDoubleValue() {
       return doubleValue_;
     }
+    /**
+     * <code>optional double doubleValue = 4;</code>
+     */
+    private void setDoubleValue(double value) {
+      
+      doubleValue_ = value;
+    }
+    /**
+     * <code>optional double doubleValue = 4;</code>
+     */
+    private void clearDoubleValue() {
+      
+      doubleValue_ = 0D;
+    }
 
     public static final int BOOLEANVALUE_FIELD_NUMBER = 5;
     private boolean booleanValue_;
@@ -734,39 +515,65 @@ public final class MappingProto {
     public boolean getBooleanValue() {
       return booleanValue_;
     }
+    /**
+     * <code>optional bool booleanValue = 5;</code>
+     */
+    private void setBooleanValue(boolean value) {
+      
+      booleanValue_ = value;
+    }
+    /**
+     * <code>optional bool booleanValue = 5;</code>
+     */
+    private void clearBooleanValue() {
+      
+      booleanValue_ = false;
+    }
 
     public static final int STRINGVALUE_FIELD_NUMBER = 6;
-    private volatile java.lang.Object stringValue_;
+    private java.lang.String stringValue_;
     /**
      * <code>optional string stringValue = 6;</code>
      */
     public java.lang.String getStringValue() {
-      java.lang.Object ref = stringValue_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        stringValue_ = s;
-        return s;
-      }
+      return stringValue_;
     }
     /**
      * <code>optional string stringValue = 6;</code>
      */
     public com.google.protobuf.ByteString
         getStringValueBytes() {
-      java.lang.Object ref = stringValue_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        stringValue_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+      return com.google.protobuf.ByteString.copyFromUtf8(stringValue_);
+    }
+    /**
+     * <code>optional string stringValue = 6;</code>
+     */
+    private void setStringValue(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      stringValue_ = value;
+    }
+    /**
+     * <code>optional string stringValue = 6;</code>
+     */
+    private void clearStringValue() {
+      
+      stringValue_ = getDefaultInstance().getStringValue();
+    }
+    /**
+     * <code>optional string stringValue = 6;</code>
+     */
+    private void setStringValueBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      stringValue_ = value.toStringUtf8();
     }
 
     public static final int NESTEDVALUE_FIELD_NUMBER = 7;
@@ -786,17 +593,47 @@ public final class MappingProto {
     /**
      * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
      */
-    public net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder getNestedValueOrBuilder() {
-      return getNestedValue();
+    private void setNestedValue(net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      nestedValue_ = value;
+      
+      }
+    /**
+     * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
+     */
+    private void setNestedValue(
+        net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder builderForValue) {
+      nestedValue_ = builderForValue.build();
+      
+    }
+    /**
+     * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
+     */
+    private void mergeNestedValue(net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
+      if (nestedValue_ != null &&
+          nestedValue_ != net.badata.protobuf.converter.proto.MappingProto.NestedTest.getDefaultInstance()) {
+        nestedValue_ =
+          net.badata.protobuf.converter.proto.MappingProto.NestedTest.newBuilder(nestedValue_).mergeFrom(value).buildPartial();
+      } else {
+        nestedValue_ = value;
+      }
+      
+    }
+    /**
+     * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
+     */
+    private void clearNestedValue() {  nestedValue_ = null;
+      
     }
 
     public static final int STRINGLISTVALUE_FIELD_NUMBER = 8;
-    private com.google.protobuf.LazyStringList stringListValue_;
+    private com.google.protobuf.Internal.ProtobufList<String> stringListValue_;
     /**
      * <code>repeated string stringListValue = 8;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getStringListValueList() {
+    public java.util.List<String> getStringListValueList() {
       return stringListValue_;
     }
     /**
@@ -816,11 +653,67 @@ public final class MappingProto {
      */
     public com.google.protobuf.ByteString
         getStringListValueBytes(int index) {
-      return stringListValue_.getByteString(index);
+      return com.google.protobuf.ByteString.copyFromUtf8(
+          stringListValue_.get(index));
+    }
+    private void ensureStringListValueIsMutable() {
+      if (!stringListValue_.isModifiable()) {
+        stringListValue_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(stringListValue_);
+       }
+    }
+    /**
+     * <code>repeated string stringListValue = 8;</code>
+     */
+    private void setStringListValue(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStringListValueIsMutable();
+      stringListValue_.set(index, value);
+    }
+    /**
+     * <code>repeated string stringListValue = 8;</code>
+     */
+    private void addStringListValue(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStringListValueIsMutable();
+      stringListValue_.add(value);
+    }
+    /**
+     * <code>repeated string stringListValue = 8;</code>
+     */
+    private void addAllStringListValue(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureStringListValueIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, stringListValue_);
+    }
+    /**
+     * <code>repeated string stringListValue = 8;</code>
+     */
+    private void clearStringListValue() {
+      stringListValue_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+    }
+    /**
+     * <code>repeated string stringListValue = 8;</code>
+     */
+    private void addStringListValueBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureStringListValueIsMutable();
+      stringListValue_.add(value.toStringUtf8());
     }
 
     public static final int NESTEDLISTVALUE_FIELD_NUMBER = 9;
-    private java.util.List<net.badata.protobuf.converter.proto.MappingProto.NestedTest> nestedListValue_;
+    private com.google.protobuf.Internal.ProtobufList<net.badata.protobuf.converter.proto.MappingProto.NestedTest> nestedListValue_;
     /**
      * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
      */
@@ -853,15 +746,90 @@ public final class MappingProto {
         int index) {
       return nestedListValue_.get(index);
     }
+    private void ensureNestedListValueIsMutable() {
+      if (!nestedListValue_.isModifiable()) {
+        nestedListValue_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(nestedListValue_);
+       }
+    }
 
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void setNestedListValue(
+        int index, net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureNestedListValueIsMutable();
+      nestedListValue_.set(index, value);
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void setNestedListValue(
+        int index, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder builderForValue) {
+      ensureNestedListValueIsMutable();
+      nestedListValue_.set(index, builderForValue.build());
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void addNestedListValue(net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureNestedListValueIsMutable();
+      nestedListValue_.add(value);
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void addNestedListValue(
+        int index, net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureNestedListValueIsMutable();
+      nestedListValue_.add(index, value);
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void addNestedListValue(
+        net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder builderForValue) {
+      ensureNestedListValueIsMutable();
+      nestedListValue_.add(builderForValue.build());
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void addNestedListValue(
+        int index, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder builderForValue) {
+      ensureNestedListValueIsMutable();
+      nestedListValue_.add(index, builderForValue.build());
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void addAllNestedListValue(
+        java.lang.Iterable<? extends net.badata.protobuf.converter.proto.MappingProto.NestedTest> values) {
+      ensureNestedListValueIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, nestedListValue_);
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void clearNestedListValue() {
+      nestedListValue_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
+     */
+    private void removeNestedListValue(int index) {
+      ensureNestedListValueIsMutable();
+      nestedListValue_.remove(index);
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
@@ -881,14 +849,14 @@ public final class MappingProto {
       if (booleanValue_ != false) {
         output.writeBool(5, booleanValue_);
       }
-      if (!getStringValueBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 6, stringValue_);
+      if (!stringValue_.isEmpty()) {
+        output.writeString(6, getStringValue());
       }
       if (nestedValue_ != null) {
         output.writeMessage(7, getNestedValue());
       }
       for (int i = 0; i < stringListValue_.size(); i++) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 8, stringListValue_.getRaw(i));
+        output.writeString(8, stringListValue_.get(i));
       }
       for (int i = 0; i < nestedListValue_.size(); i++) {
         output.writeMessage(9, nestedListValue_.get(i));
@@ -896,7 +864,7 @@ public final class MappingProto {
     }
 
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -920,8 +888,9 @@ public final class MappingProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, booleanValue_);
       }
-      if (!getStringValueBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(6, stringValue_);
+      if (!stringValue_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(6, getStringValue());
       }
       if (nestedValue_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -930,7 +899,8 @@ public final class MappingProto {
       {
         int dataSize = 0;
         for (int i = 0; i < stringListValue_.size(); i++) {
-          dataSize += computeStringSizeNoTag(stringListValue_.getRaw(i));
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeStringSizeNoTag(stringListValue_.get(i));
         }
         size += dataSize;
         size += 1 * getStringListValueList().size();
@@ -939,476 +909,235 @@ public final class MappingProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, nestedListValue_.get(i));
       }
-      memoizedSize = size;
+      memoizedSerializedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
     }
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
     public static Builder newBuilder(net.badata.protobuf.converter.proto.MappingProto.MappingTest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
 
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code net.badata.protobuf.converter.proto.MappingTest}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          net.badata.protobuf.converter.proto.MappingProto.MappingTest, Builder> implements
         // @@protoc_insertion_point(builder_implements:net.badata.protobuf.converter.proto.MappingTest)
         net.badata.protobuf.converter.proto.MappingProto.MappingTestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_MappingTest_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_MappingTest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                net.badata.protobuf.converter.proto.MappingProto.MappingTest.class, net.badata.protobuf.converter.proto.MappingProto.MappingTest.Builder.class);
-      }
-
       // Construct using net.badata.protobuf.converter.proto.MappingProto.MappingTest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        super(DEFAULT_INSTANCE);
       }
 
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getNestedListValueFieldBuilder();
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        intValue_ = 0;
 
-        longValue_ = 0L;
-
-        floatValue_ = 0F;
-
-        doubleValue_ = 0D;
-
-        booleanValue_ = false;
-
-        stringValue_ = "";
-
-        if (nestedValueBuilder_ == null) {
-          nestedValue_ = null;
-        } else {
-          nestedValue_ = null;
-          nestedValueBuilder_ = null;
-        }
-        stringListValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        if (nestedListValueBuilder_ == null) {
-          nestedListValue_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000100);
-        } else {
-          nestedListValueBuilder_.clear();
-        }
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return net.badata.protobuf.converter.proto.MappingProto.internal_static_net_badata_protobuf_converter_proto_MappingTest_descriptor;
-      }
-
-      public net.badata.protobuf.converter.proto.MappingProto.MappingTest getDefaultInstanceForType() {
-        return net.badata.protobuf.converter.proto.MappingProto.MappingTest.getDefaultInstance();
-      }
-
-      public net.badata.protobuf.converter.proto.MappingProto.MappingTest build() {
-        net.badata.protobuf.converter.proto.MappingProto.MappingTest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public net.badata.protobuf.converter.proto.MappingProto.MappingTest buildPartial() {
-        net.badata.protobuf.converter.proto.MappingProto.MappingTest result = new net.badata.protobuf.converter.proto.MappingProto.MappingTest(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.intValue_ = intValue_;
-        result.longValue_ = longValue_;
-        result.floatValue_ = floatValue_;
-        result.doubleValue_ = doubleValue_;
-        result.booleanValue_ = booleanValue_;
-        result.stringValue_ = stringValue_;
-        if (nestedValueBuilder_ == null) {
-          result.nestedValue_ = nestedValue_;
-        } else {
-          result.nestedValue_ = nestedValueBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
-          stringListValue_ = stringListValue_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000080);
-        }
-        result.stringListValue_ = stringListValue_;
-        if (nestedListValueBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) == 0x00000100)) {
-            nestedListValue_ = java.util.Collections.unmodifiableList(nestedListValue_);
-            bitField0_ = (bitField0_ & ~0x00000100);
-          }
-          result.nestedListValue_ = nestedListValue_;
-        } else {
-          result.nestedListValue_ = nestedListValueBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof net.badata.protobuf.converter.proto.MappingProto.MappingTest) {
-          return mergeFrom((net.badata.protobuf.converter.proto.MappingProto.MappingTest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(net.badata.protobuf.converter.proto.MappingProto.MappingTest other) {
-        if (other == net.badata.protobuf.converter.proto.MappingProto.MappingTest.getDefaultInstance()) return this;
-        if (other.getIntValue() != 0) {
-          setIntValue(other.getIntValue());
-        }
-        if (other.getLongValue() != 0L) {
-          setLongValue(other.getLongValue());
-        }
-        if (other.getFloatValue() != 0F) {
-          setFloatValue(other.getFloatValue());
-        }
-        if (other.getDoubleValue() != 0D) {
-          setDoubleValue(other.getDoubleValue());
-        }
-        if (other.getBooleanValue() != false) {
-          setBooleanValue(other.getBooleanValue());
-        }
-        if (!other.getStringValue().isEmpty()) {
-          stringValue_ = other.stringValue_;
-          onChanged();
-        }
-        if (other.hasNestedValue()) {
-          mergeNestedValue(other.getNestedValue());
-        }
-        if (!other.stringListValue_.isEmpty()) {
-          if (stringListValue_.isEmpty()) {
-            stringListValue_ = other.stringListValue_;
-            bitField0_ = (bitField0_ & ~0x00000080);
-          } else {
-            ensureStringListValueIsMutable();
-            stringListValue_.addAll(other.stringListValue_);
-          }
-          onChanged();
-        }
-        if (nestedListValueBuilder_ == null) {
-          if (!other.nestedListValue_.isEmpty()) {
-            if (nestedListValue_.isEmpty()) {
-              nestedListValue_ = other.nestedListValue_;
-              bitField0_ = (bitField0_ & ~0x00000100);
-            } else {
-              ensureNestedListValueIsMutable();
-              nestedListValue_.addAll(other.nestedListValue_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.nestedListValue_.isEmpty()) {
-            if (nestedListValueBuilder_.isEmpty()) {
-              nestedListValueBuilder_.dispose();
-              nestedListValueBuilder_ = null;
-              nestedListValue_ = other.nestedListValue_;
-              bitField0_ = (bitField0_ & ~0x00000100);
-              nestedListValueBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getNestedListValueFieldBuilder() : null;
-            } else {
-              nestedListValueBuilder_.addAllMessages(other.nestedListValue_);
-            }
-          }
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        net.badata.protobuf.converter.proto.MappingProto.MappingTest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (net.badata.protobuf.converter.proto.MappingProto.MappingTest) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private int intValue_ ;
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public int getIntValue() {
-        return intValue_;
+        return instance.getIntValue();
       }
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public Builder setIntValue(int value) {
-        
-        intValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setIntValue(value);
         return this;
       }
       /**
        * <code>optional int32 intValue = 1;</code>
        */
       public Builder clearIntValue() {
-        
-        intValue_ = 0;
-        onChanged();
+        copyOnWrite();
+        instance.clearIntValue();
         return this;
       }
 
-      private long longValue_ ;
       /**
        * <code>optional int64 longValue = 2;</code>
        */
       public long getLongValue() {
-        return longValue_;
+        return instance.getLongValue();
       }
       /**
        * <code>optional int64 longValue = 2;</code>
        */
       public Builder setLongValue(long value) {
-        
-        longValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setLongValue(value);
         return this;
       }
       /**
        * <code>optional int64 longValue = 2;</code>
        */
       public Builder clearLongValue() {
-        
-        longValue_ = 0L;
-        onChanged();
+        copyOnWrite();
+        instance.clearLongValue();
         return this;
       }
 
-      private float floatValue_ ;
       /**
        * <code>optional float floatValue = 3;</code>
        */
       public float getFloatValue() {
-        return floatValue_;
+        return instance.getFloatValue();
       }
       /**
        * <code>optional float floatValue = 3;</code>
        */
       public Builder setFloatValue(float value) {
-        
-        floatValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setFloatValue(value);
         return this;
       }
       /**
        * <code>optional float floatValue = 3;</code>
        */
       public Builder clearFloatValue() {
-        
-        floatValue_ = 0F;
-        onChanged();
+        copyOnWrite();
+        instance.clearFloatValue();
         return this;
       }
 
-      private double doubleValue_ ;
       /**
        * <code>optional double doubleValue = 4;</code>
        */
       public double getDoubleValue() {
-        return doubleValue_;
+        return instance.getDoubleValue();
       }
       /**
        * <code>optional double doubleValue = 4;</code>
        */
       public Builder setDoubleValue(double value) {
-        
-        doubleValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setDoubleValue(value);
         return this;
       }
       /**
        * <code>optional double doubleValue = 4;</code>
        */
       public Builder clearDoubleValue() {
-        
-        doubleValue_ = 0D;
-        onChanged();
+        copyOnWrite();
+        instance.clearDoubleValue();
         return this;
       }
 
-      private boolean booleanValue_ ;
       /**
        * <code>optional bool booleanValue = 5;</code>
        */
       public boolean getBooleanValue() {
-        return booleanValue_;
+        return instance.getBooleanValue();
       }
       /**
        * <code>optional bool booleanValue = 5;</code>
        */
       public Builder setBooleanValue(boolean value) {
-        
-        booleanValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setBooleanValue(value);
         return this;
       }
       /**
        * <code>optional bool booleanValue = 5;</code>
        */
       public Builder clearBooleanValue() {
-        
-        booleanValue_ = false;
-        onChanged();
+        copyOnWrite();
+        instance.clearBooleanValue();
         return this;
       }
 
-      private java.lang.Object stringValue_ = "";
       /**
        * <code>optional string stringValue = 6;</code>
        */
       public java.lang.String getStringValue() {
-        java.lang.Object ref = stringValue_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          stringValue_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+        return instance.getStringValue();
       }
       /**
        * <code>optional string stringValue = 6;</code>
        */
       public com.google.protobuf.ByteString
           getStringValueBytes() {
-        java.lang.Object ref = stringValue_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          stringValue_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+        return instance.getStringValueBytes();
       }
       /**
        * <code>optional string stringValue = 6;</code>
        */
       public Builder setStringValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        stringValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setStringValue(value);
         return this;
       }
       /**
        * <code>optional string stringValue = 6;</code>
        */
       public Builder clearStringValue() {
-        
-        stringValue_ = getDefaultInstance().getStringValue();
-        onChanged();
+        copyOnWrite();
+        instance.clearStringValue();
         return this;
       }
       /**
@@ -1416,177 +1145,90 @@ public final class MappingProto {
        */
       public Builder setStringValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        stringValue_ = value;
-        onChanged();
+        copyOnWrite();
+        instance.setStringValueBytes(value);
         return this;
       }
 
-      private net.badata.protobuf.converter.proto.MappingProto.NestedTest nestedValue_ = null;
-      private com.google.protobuf.SingleFieldBuilder<
-          net.badata.protobuf.converter.proto.MappingProto.NestedTest, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder, net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder> nestedValueBuilder_;
       /**
        * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
        */
       public boolean hasNestedValue() {
-        return nestedValueBuilder_ != null || nestedValue_ != null;
+        return instance.hasNestedValue();
       }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
        */
       public net.badata.protobuf.converter.proto.MappingProto.NestedTest getNestedValue() {
-        if (nestedValueBuilder_ == null) {
-          return nestedValue_ == null ? net.badata.protobuf.converter.proto.MappingProto.NestedTest.getDefaultInstance() : nestedValue_;
-        } else {
-          return nestedValueBuilder_.getMessage();
-        }
+        return instance.getNestedValue();
       }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
        */
       public Builder setNestedValue(net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
-        if (nestedValueBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          nestedValue_ = value;
-          onChanged();
-        } else {
-          nestedValueBuilder_.setMessage(value);
-        }
-
+        copyOnWrite();
+        instance.setNestedValue(value);
         return this;
-      }
+        }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
        */
       public Builder setNestedValue(
           net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder builderForValue) {
-        if (nestedValueBuilder_ == null) {
-          nestedValue_ = builderForValue.build();
-          onChanged();
-        } else {
-          nestedValueBuilder_.setMessage(builderForValue.build());
-        }
-
+        copyOnWrite();
+        instance.setNestedValue(builderForValue);
         return this;
       }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
        */
       public Builder mergeNestedValue(net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
-        if (nestedValueBuilder_ == null) {
-          if (nestedValue_ != null) {
-            nestedValue_ =
-              net.badata.protobuf.converter.proto.MappingProto.NestedTest.newBuilder(nestedValue_).mergeFrom(value).buildPartial();
-          } else {
-            nestedValue_ = value;
-          }
-          onChanged();
-        } else {
-          nestedValueBuilder_.mergeFrom(value);
-        }
-
+        copyOnWrite();
+        instance.mergeNestedValue(value);
         return this;
       }
       /**
        * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
        */
-      public Builder clearNestedValue() {
-        if (nestedValueBuilder_ == null) {
-          nestedValue_ = null;
-          onChanged();
-        } else {
-          nestedValue_ = null;
-          nestedValueBuilder_ = null;
-        }
-
+      public Builder clearNestedValue() {  copyOnWrite();
+        instance.clearNestedValue();
         return this;
       }
-      /**
-       * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
-       */
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder getNestedValueBuilder() {
-        
-        onChanged();
-        return getNestedValueFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
-       */
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder getNestedValueOrBuilder() {
-        if (nestedValueBuilder_ != null) {
-          return nestedValueBuilder_.getMessageOrBuilder();
-        } else {
-          return nestedValue_ == null ?
-              net.badata.protobuf.converter.proto.MappingProto.NestedTest.getDefaultInstance() : nestedValue_;
-        }
-      }
-      /**
-       * <code>optional .net.badata.protobuf.converter.proto.NestedTest nestedValue = 7;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          net.badata.protobuf.converter.proto.MappingProto.NestedTest, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder, net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder> 
-          getNestedValueFieldBuilder() {
-        if (nestedValueBuilder_ == null) {
-          nestedValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              net.badata.protobuf.converter.proto.MappingProto.NestedTest, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder, net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder>(
-                  getNestedValue(),
-                  getParentForChildren(),
-                  isClean());
-          nestedValue_ = null;
-        }
-        return nestedValueBuilder_;
-      }
 
-      private com.google.protobuf.LazyStringList stringListValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureStringListValueIsMutable() {
-        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
-          stringListValue_ = new com.google.protobuf.LazyStringArrayList(stringListValue_);
-          bitField0_ |= 0x00000080;
-         }
-      }
       /**
        * <code>repeated string stringListValue = 8;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<String>
           getStringListValueList() {
-        return stringListValue_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(
+            instance.getStringListValueList());
       }
       /**
        * <code>repeated string stringListValue = 8;</code>
        */
       public int getStringListValueCount() {
-        return stringListValue_.size();
+        return instance.getStringListValueCount();
       }
       /**
        * <code>repeated string stringListValue = 8;</code>
        */
       public java.lang.String getStringListValue(int index) {
-        return stringListValue_.get(index);
+        return instance.getStringListValue(index);
       }
       /**
        * <code>repeated string stringListValue = 8;</code>
        */
       public com.google.protobuf.ByteString
           getStringListValueBytes(int index) {
-        return stringListValue_.getByteString(index);
+        return instance.getStringListValueBytes(index);
       }
       /**
        * <code>repeated string stringListValue = 8;</code>
        */
       public Builder setStringListValue(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStringListValueIsMutable();
-        stringListValue_.set(index, value);
-        onChanged();
+        copyOnWrite();
+        instance.setStringListValue(index, value);
         return this;
       }
       /**
@@ -1594,12 +1236,8 @@ public final class MappingProto {
        */
       public Builder addStringListValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStringListValueIsMutable();
-        stringListValue_.add(value);
-        onChanged();
+        copyOnWrite();
+        instance.addStringListValue(value);
         return this;
       }
       /**
@@ -1607,19 +1245,16 @@ public final class MappingProto {
        */
       public Builder addAllStringListValue(
           java.lang.Iterable<java.lang.String> values) {
-        ensureStringListValueIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, stringListValue_);
-        onChanged();
+        copyOnWrite();
+        instance.addAllStringListValue(values);
         return this;
       }
       /**
        * <code>repeated string stringListValue = 8;</code>
        */
       public Builder clearStringListValue() {
-        stringListValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        onChanged();
+        copyOnWrite();
+        instance.clearStringListValue();
         return this;
       }
       /**
@@ -1627,73 +1262,36 @@ public final class MappingProto {
        */
       public Builder addStringListValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureStringListValueIsMutable();
-        stringListValue_.add(value);
-        onChanged();
+        copyOnWrite();
+        instance.addStringListValueBytes(value);
         return this;
       }
-
-      private java.util.List<net.badata.protobuf.converter.proto.MappingProto.NestedTest> nestedListValue_ =
-        java.util.Collections.emptyList();
-      private void ensureNestedListValueIsMutable() {
-        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
-          nestedListValue_ = new java.util.ArrayList<net.badata.protobuf.converter.proto.MappingProto.NestedTest>(nestedListValue_);
-          bitField0_ |= 0x00000100;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          net.badata.protobuf.converter.proto.MappingProto.NestedTest, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder, net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder> nestedListValueBuilder_;
 
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
        */
       public java.util.List<net.badata.protobuf.converter.proto.MappingProto.NestedTest> getNestedListValueList() {
-        if (nestedListValueBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(nestedListValue_);
-        } else {
-          return nestedListValueBuilder_.getMessageList();
-        }
+        return java.util.Collections.unmodifiableList(
+            instance.getNestedListValueList());
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
        */
       public int getNestedListValueCount() {
-        if (nestedListValueBuilder_ == null) {
-          return nestedListValue_.size();
-        } else {
-          return nestedListValueBuilder_.getCount();
-        }
-      }
-      /**
+        return instance.getNestedListValueCount();
+      }/**
        * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
        */
       public net.badata.protobuf.converter.proto.MappingProto.NestedTest getNestedListValue(int index) {
-        if (nestedListValueBuilder_ == null) {
-          return nestedListValue_.get(index);
-        } else {
-          return nestedListValueBuilder_.getMessage(index);
-        }
+        return instance.getNestedListValue(index);
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
        */
       public Builder setNestedListValue(
           int index, net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
-        if (nestedListValueBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureNestedListValueIsMutable();
-          nestedListValue_.set(index, value);
-          onChanged();
-        } else {
-          nestedListValueBuilder_.setMessage(index, value);
-        }
+        copyOnWrite();
+        instance.setNestedListValue(index, value);
         return this;
       }
       /**
@@ -1701,29 +1299,16 @@ public final class MappingProto {
        */
       public Builder setNestedListValue(
           int index, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder builderForValue) {
-        if (nestedListValueBuilder_ == null) {
-          ensureNestedListValueIsMutable();
-          nestedListValue_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          nestedListValueBuilder_.setMessage(index, builderForValue.build());
-        }
+        copyOnWrite();
+        instance.setNestedListValue(index, builderForValue);
         return this;
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
        */
       public Builder addNestedListValue(net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
-        if (nestedListValueBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureNestedListValueIsMutable();
-          nestedListValue_.add(value);
-          onChanged();
-        } else {
-          nestedListValueBuilder_.addMessage(value);
-        }
+        copyOnWrite();
+        instance.addNestedListValue(value);
         return this;
       }
       /**
@@ -1731,16 +1316,8 @@ public final class MappingProto {
        */
       public Builder addNestedListValue(
           int index, net.badata.protobuf.converter.proto.MappingProto.NestedTest value) {
-        if (nestedListValueBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureNestedListValueIsMutable();
-          nestedListValue_.add(index, value);
-          onChanged();
-        } else {
-          nestedListValueBuilder_.addMessage(index, value);
-        }
+        copyOnWrite();
+        instance.addNestedListValue(index, value);
         return this;
       }
       /**
@@ -1748,13 +1325,8 @@ public final class MappingProto {
        */
       public Builder addNestedListValue(
           net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder builderForValue) {
-        if (nestedListValueBuilder_ == null) {
-          ensureNestedListValueIsMutable();
-          nestedListValue_.add(builderForValue.build());
-          onChanged();
-        } else {
-          nestedListValueBuilder_.addMessage(builderForValue.build());
-        }
+        copyOnWrite();
+        instance.addNestedListValue(builderForValue);
         return this;
       }
       /**
@@ -1762,13 +1334,8 @@ public final class MappingProto {
        */
       public Builder addNestedListValue(
           int index, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder builderForValue) {
-        if (nestedListValueBuilder_ == null) {
-          ensureNestedListValueIsMutable();
-          nestedListValue_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          nestedListValueBuilder_.addMessage(index, builderForValue.build());
-        }
+        copyOnWrite();
+        instance.addNestedListValue(index, builderForValue);
         return this;
       }
       /**
@@ -1776,220 +1343,200 @@ public final class MappingProto {
        */
       public Builder addAllNestedListValue(
           java.lang.Iterable<? extends net.badata.protobuf.converter.proto.MappingProto.NestedTest> values) {
-        if (nestedListValueBuilder_ == null) {
-          ensureNestedListValueIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, nestedListValue_);
-          onChanged();
-        } else {
-          nestedListValueBuilder_.addAllMessages(values);
-        }
+        copyOnWrite();
+        instance.addAllNestedListValue(values);
         return this;
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
        */
       public Builder clearNestedListValue() {
-        if (nestedListValueBuilder_ == null) {
-          nestedListValue_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000100);
-          onChanged();
-        } else {
-          nestedListValueBuilder_.clear();
-        }
+        copyOnWrite();
+        instance.clearNestedListValue();
         return this;
       }
       /**
        * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
        */
       public Builder removeNestedListValue(int index) {
-        if (nestedListValueBuilder_ == null) {
-          ensureNestedListValueIsMutable();
-          nestedListValue_.remove(index);
-          onChanged();
-        } else {
-          nestedListValueBuilder_.remove(index);
-        }
+        copyOnWrite();
+        instance.removeNestedListValue(index);
         return this;
       }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
-       */
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder getNestedListValueBuilder(
-          int index) {
-        return getNestedListValueFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
-       */
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder getNestedListValueOrBuilder(
-          int index) {
-        if (nestedListValueBuilder_ == null) {
-          return nestedListValue_.get(index);  } else {
-          return nestedListValueBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
-       */
-      public java.util.List<? extends net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder> 
-           getNestedListValueOrBuilderList() {
-        if (nestedListValueBuilder_ != null) {
-          return nestedListValueBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(nestedListValue_);
-        }
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
-       */
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder addNestedListValueBuilder() {
-        return getNestedListValueFieldBuilder().addBuilder(
-            net.badata.protobuf.converter.proto.MappingProto.NestedTest.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
-       */
-      public net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder addNestedListValueBuilder(
-          int index) {
-        return getNestedListValueFieldBuilder().addBuilder(
-            index, net.badata.protobuf.converter.proto.MappingProto.NestedTest.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .net.badata.protobuf.converter.proto.NestedTest nestedListValue = 9;</code>
-       */
-      public java.util.List<net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder> 
-           getNestedListValueBuilderList() {
-        return getNestedListValueFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          net.badata.protobuf.converter.proto.MappingProto.NestedTest, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder, net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder> 
-          getNestedListValueFieldBuilder() {
-        if (nestedListValueBuilder_ == null) {
-          nestedListValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              net.badata.protobuf.converter.proto.MappingProto.NestedTest, net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder, net.badata.protobuf.converter.proto.MappingProto.NestedTestOrBuilder>(
-                  nestedListValue_,
-                  ((bitField0_ & 0x00000100) == 0x00000100),
-                  getParentForChildren(),
-                  isClean());
-          nestedListValue_ = null;
-        }
-        return nestedListValueBuilder_;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
 
       // @@protoc_insertion_point(builder_scope:net.badata.protobuf.converter.proto.MappingTest)
     }
+    protected final Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        Object arg0, Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new net.badata.protobuf.converter.proto.MappingProto.MappingTest();
+        }
+        case IS_INITIALIZED: {
+          return DEFAULT_INSTANCE;
+        }
+        case MAKE_IMMUTABLE: {
+          stringListValue_.makeImmutable();
+          nestedListValue_.makeImmutable();
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          net.badata.protobuf.converter.proto.MappingProto.MappingTest other = (net.badata.protobuf.converter.proto.MappingProto.MappingTest) arg1;
+          intValue_ = visitor.visitInt(intValue_ != 0, intValue_,
+              other.intValue_ != 0, other.intValue_);
+          longValue_ = visitor.visitLong(longValue_ != 0L, longValue_,
+              other.longValue_ != 0L, other.longValue_);
+          floatValue_ = visitor.visitFloat(floatValue_ != 0F, floatValue_,
+              other.floatValue_ != 0F, other.floatValue_);
+          doubleValue_ = visitor.visitDouble(doubleValue_ != 0D, doubleValue_,
+              other.doubleValue_ != 0D, other.doubleValue_);
+          booleanValue_ = visitor.visitBoolean(booleanValue_ != false, booleanValue_,
+              other.booleanValue_ != false, other.booleanValue_);
+          stringValue_ = visitor.visitString(!stringValue_.isEmpty(), stringValue_,
+              !other.stringValue_.isEmpty(), other.stringValue_);
+          nestedValue_ = visitor.visitMessage(nestedValue_, other.nestedValue_);
+          stringListValue_= visitor.visitList(stringListValue_, other.stringListValue_);
+          nestedListValue_= visitor.visitList(nestedListValue_, other.nestedListValue_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+              .INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+              (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  intValue_ = input.readInt32();
+                  break;
+                }
+                case 16: {
+
+                  longValue_ = input.readInt64();
+                  break;
+                }
+                case 29: {
+
+                  floatValue_ = input.readFloat();
+                  break;
+                }
+                case 33: {
+
+                  doubleValue_ = input.readDouble();
+                  break;
+                }
+                case 40: {
+
+                  booleanValue_ = input.readBool();
+                  break;
+                }
+                case 50: {
+                  String s = input.readStringRequireUtf8();
+
+                  stringValue_ = s;
+                  break;
+                }
+                case 58: {
+                  net.badata.protobuf.converter.proto.MappingProto.NestedTest.Builder subBuilder = null;
+                  if (nestedValue_ != null) {
+                    subBuilder = nestedValue_.toBuilder();
+                  }
+                  nestedValue_ = input.readMessage(net.badata.protobuf.converter.proto.MappingProto.NestedTest.parser(), extensionRegistry);
+                  if (subBuilder != null) {
+                    subBuilder.mergeFrom(nestedValue_);
+                    nestedValue_ = subBuilder.buildPartial();
+                  }
+
+                  break;
+                }
+                case 66: {
+                  String s = input.readStringRequireUtf8();
+                  if (!stringListValue_.isModifiable()) {
+                    stringListValue_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(stringListValue_);
+                  }
+                  stringListValue_.add(s);
+                  break;
+                }
+                case 74: {
+                  if (!nestedListValue_.isModifiable()) {
+                    nestedListValue_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(nestedListValue_);
+                  }
+                  nestedListValue_.add(
+                      input.readMessage(net.badata.protobuf.converter.proto.MappingProto.NestedTest.parser(), extensionRegistry));
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(
+                    e.getMessage()).setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {    synchronized (net.badata.protobuf.converter.proto.MappingProto.MappingTest.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+      }
+      throw new UnsupportedOperationException();
+    }
+
 
     // @@protoc_insertion_point(class_scope:net.badata.protobuf.converter.proto.MappingTest)
     private static final net.badata.protobuf.converter.proto.MappingProto.MappingTest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new net.badata.protobuf.converter.proto.MappingProto.MappingTest();
+      DEFAULT_INSTANCE = new MappingTest();
+      DEFAULT_INSTANCE.makeImmutable();
     }
 
     public static net.badata.protobuf.converter.proto.MappingProto.MappingTest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<MappingTest>
-        PARSER = new com.google.protobuf.AbstractParser<MappingTest>() {
-      public MappingTest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        try {
-          return new MappingTest(input, extensionRegistry);
-        } catch (RuntimeException e) {
-          if (e.getCause() instanceof
-              com.google.protobuf.InvalidProtocolBufferException) {
-            throw (com.google.protobuf.InvalidProtocolBufferException)
-                e.getCause();
-          }
-          throw e;
-        }
-      }
-    };
+    private static volatile com.google.protobuf.Parser<MappingTest> PARSER;
 
     public static com.google.protobuf.Parser<MappingTest> parser() {
-      return PARSER;
+      return DEFAULT_INSTANCE.getParserForType();
     }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MappingTest> getParserForType() {
-      return PARSER;
-    }
-
-    public net.badata.protobuf.converter.proto.MappingProto.MappingTest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_net_badata_protobuf_converter_proto_NestedTest_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_net_badata_protobuf_converter_proto_MappingTest_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_net_badata_protobuf_converter_proto_MappingTest_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
   static {
-    java.lang.String[] descriptorData = {
-      "\n\022mapping_test.proto\022#net.badata.protobu" +
-      "f.converter.proto\"!\n\nNestedTest\022\023\n\013strin" +
-      "gValue\030\001 \001(\t\"\257\002\n\013MappingTest\022\020\n\010intValue" +
-      "\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfloatValue\030" +
-      "\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014booleanVal" +
-      "ue\030\005 \001(\010\022\023\n\013stringValue\030\006 \001(\t\022D\n\013nestedV" +
-      "alue\030\007 \001(\0132/.net.badata.protobuf.convert" +
-      "er.proto.NestedTest\022\027\n\017stringListValue\030\010" +
-      " \003(\t\022H\n\017nestedListValue\030\t \003(\0132/.net.bada" +
-      "ta.protobuf.converter.proto.NestedTestB3",
-      "\n#net.badata.protobuf.converter.protoB\014M" +
-      "appingProtob\006proto3"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_net_badata_protobuf_converter_proto_NestedTest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_net_badata_protobuf_converter_proto_NestedTest_descriptor,
-        new java.lang.String[] { "StringValue", });
-    internal_static_net_badata_protobuf_converter_proto_MappingTest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_net_badata_protobuf_converter_proto_MappingTest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_net_badata_protobuf_converter_proto_MappingTest_descriptor,
-        new java.lang.String[] { "IntValue", "LongValue", "FloatValue", "DoubleValue", "BooleanValue", "StringValue", "NestedValue", "StringListValue", "NestedListValue", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

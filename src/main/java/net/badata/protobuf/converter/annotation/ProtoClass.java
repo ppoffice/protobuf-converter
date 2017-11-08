@@ -16,7 +16,7 @@
  */
 package net.badata.protobuf.converter.annotation;
 
-import com.google.protobuf.Message;
+import com.google.protobuf.MessageLite;
 import net.badata.protobuf.converter.mapping.DefaultMapperImpl;
 import net.badata.protobuf.converter.mapping.Mapper;
 import net.badata.protobuf.converter.resolver.AnnotatedFieldResolverFactoryImpl;
@@ -41,7 +41,7 @@ public @interface ProtoClass {
 	 *
 	 * @return Class that represents protobuf dto.
 	 */
-	Class<? extends Message> value();
+	Class<? extends MessageLite> value();
 
 	/**
 	 * Retrieve class that perform data mapping between domain and protobuf instances.

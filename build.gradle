@@ -14,7 +14,7 @@ apply plugin: 'maven'
 apply plugin: 'idea'
 apply plugin: 'com.google.protobuf'
 
-group = 'com.github.BAData'
+group = 'com.github.ppoffice'
 
 repositories {
     mavenCentral()
@@ -29,11 +29,26 @@ protobuf {
     protoc {
         artifact = 'com.google.protobuf:protoc:3.0.0-beta-1'
     }
+    plugins {
+        javalite {
+            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+            }
+            task.plugins {
+                javalite { }
+            }
+        }
+    }
     generatedFilesBaseDir = "$projectDir/src"
 }
 
 dependencies {
-    compile 'com.google.protobuf:protobuf-java:3.0.0-beta-1'
+    compile 'com.google.protobuf:protobuf-lite:3.0.0'
     testCompile 'junit:junit:4.12'
 }
 
