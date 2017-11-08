@@ -7,7 +7,7 @@
 
 ## Maven/Gradle
 
-You can add this library as a dependency to your Maven or Gradle project through [JitPack](https://jitpack.io/#BAData/protobuf-converter).
+You can add this library as a dependency to your Maven or Gradle project through [JitPack](https://jitpack.io/#ppoffice/protobuf-lite-converter).
 
 ## How to use it ?
 Domain model classes that have to be transformed into protobuf messages must satisfy conditions:
