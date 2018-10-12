@@ -2,6 +2,7 @@ package net.badata.protobuf.converter.mapping;
 
 import com.google.protobuf.MessageLite;
 import net.badata.protobuf.converter.exception.MappingException;
+import net.badata.protobuf.converter.inspection.NullValueInspector;
 import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.utils.FieldUtils;
 
@@ -35,10 +36,15 @@ public class DefaultMapperImpl implements Mapper {
 			if (hasFieldValue) {
 				return new MappingResult(MappingResult.Result.NESTED_MAPPING, protobufFieldValue, domain);
 			}
-			return new MappingResult(MappingResult.Result.MAPPED, null, domain);
+			return new MappingResult(MappingResult.Result.UNSET, null, domain);
 		}
 		if (FieldUtils.isCollectionType(fieldResolver.getField())) {
 			return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, protobufFieldValue, domain);
+		}
+
+		NullValueInspector nullInspector = fieldResolver.getNullValueInspector();
+		if (nullInspector.isNull(protobufFieldValue)) {
+			return new MappingResult(MappingResult.Result.UNSET, null, domain);
 		}
 		return new MappingResult(MappingResult.Result.MAPPED, protobufFieldValue, domain);
 	}
@@ -83,6 +89,10 @@ public class DefaultMapperImpl implements Mapper {
 	Object domain, final T
 			protobufBuilder) throws MappingException {
 		Object domainFieldValue = getFieldValue(FieldUtils.createDomainGetterName(fieldResolver), domain);
+		NullValueInspector nullInspector = fieldResolver.getNullValueInspector();
+		if (nullInspector.isNull(domainFieldValue)) {
+			return new MappingResult(MappingResult.Result.UNSET, null, protobufBuilder);
+		}
 		if (FieldUtils.isComplexType(fieldResolver.getField())) {
 			return new MappingResult(MappingResult.Result.NESTED_MAPPING, domainFieldValue, protobufBuilder);
 		}

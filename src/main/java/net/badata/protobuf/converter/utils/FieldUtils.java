@@ -19,6 +19,7 @@ public final class FieldUtils {
 	private static final String HASSER_PREFIX = "has";
 	private static final String GETTER_PREFIX = "get";
 	private static final String SETTER_PREFIX = "set";
+	private static final String CLEAR_PREFIX = "clear";
 	private static final String BOOLEAN_GETTER_PREFIX = "is";
 	private static final String PROTOBUF_LIST_GETTER_POSTFIX = "List";
 	private static final String PROTOBUF_LIST_SETTER_PREFIX = "addAll";
@@ -103,6 +104,16 @@ public final class FieldUtils {
 			return StringUtils.createMethodName(PROTOBUF_LIST_SETTER_PREFIX, fieldResolver.getProtobufName());
 		}
 		return StringUtils.createMethodName(SETTER_PREFIX, fieldResolver.getProtobufName());
+	}
+
+	/**
+	 * Create protobuf clear method name for domain field.
+	 *
+	 * @param fieldResolver Domain object field resolver.
+	 * @return Protobuf field clear method name.
+	 */
+	public static String createProtobufClearName(final FieldResolver fieldResolver) {
+		return StringUtils.createMethodName(CLEAR_PREFIX, fieldResolver.getProtobufName());
 	}
 
 	/**

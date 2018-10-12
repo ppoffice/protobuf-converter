@@ -291,6 +291,10 @@ public class ConverterDomain {
 		private String customInspectionString;
 		@ProtoField
 		private PrimitiveWrapperTest defaultPrimitives;
+		@ProtoField(nullValue = NullIfOneInspector.class)
+		private Integer nullInt;
+		@ProtoField(nullValue = NullIfOneInspector.class)
+		private Integer notNullInt;
 
 
 		public String getNullString() {
@@ -315,6 +319,22 @@ public class ConverterDomain {
 
 		public void setDefaultPrimitives(final PrimitiveWrapperTest defaultPrimitives) {
 			this.defaultPrimitives = defaultPrimitives;
+		}
+
+		public Integer getNullInt() {
+			return nullInt;
+		}
+
+		public void setNullInt(Integer nullInt) {
+			this.nullInt = nullInt;
+		}
+
+		public Integer getNotNullInt() {
+			return notNullInt;
+		}
+
+		public void setNotNullInt(Integer notNullInt) {
+			this.notNullInt = notNullInt;
 		}
 	}
 
@@ -378,6 +398,14 @@ public class ConverterDomain {
 		@Override
 		public boolean isNull(final Object value) {
 			return true;
+		}
+	}
+
+	public static class NullIfOneInspector implements NullValueInspector {
+
+		@Override
+		public boolean isNull(final Object value) {
+			return (Integer) value == 1;
 		}
 	}
 

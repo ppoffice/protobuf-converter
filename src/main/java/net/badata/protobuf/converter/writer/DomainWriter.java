@@ -2,7 +2,6 @@ package net.badata.protobuf.converter.writer;
 
 import net.badata.protobuf.converter.exception.WriteException;
 import net.badata.protobuf.converter.inspection.DefaultValue;
-import net.badata.protobuf.converter.inspection.NullValueInspector;
 import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.type.TypeConverter;
 import net.badata.protobuf.converter.utils.FieldUtils;
@@ -35,14 +34,20 @@ public class DomainWriter extends AbstractWriter {
 	@Override
 	protected void write(final Object destination, final FieldResolver fieldResolver, final Object value)
 			throws WriteException {
-		NullValueInspector nullInspector = fieldResolver.getNullValueInspector();
-		DefaultValue defaultValueCreator = fieldResolver.getDefaultValue();
 		TypeConverter<?, ?> typeConverter = fieldResolver.getTypeConverter();
-		if (nullInspector.isNull(value)) {
-			writeValue(destination, fieldResolver, defaultValueCreator.generateValue(fieldResolver.getDomainType()));
-		} else {
-			writeValue(destination, fieldResolver, typeConverter.toDomainValue(value));
-		}
+		writeValue(destination, fieldResolver, typeConverter.toDomainValue(value));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * Note: if the field value of a domain object is to be unset, the field will be set to the default value
+	 *       indicated by {@link DefaultValue}.
+	 */
+	@Override
+	protected void unset(Object destination, FieldResolver fieldResolver) throws WriteException {
+		DefaultValue defaultValueCreator = fieldResolver.getDefaultValue();
+		writeValue(destination, fieldResolver, defaultValueCreator.generateValue(fieldResolver.getDomainType()));
 	}
 
 	private void writeValue(final Object destination,  final FieldResolver fieldResolver, final Object value) throws WriteException {

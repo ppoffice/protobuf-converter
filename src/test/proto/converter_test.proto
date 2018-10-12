@@ -23,6 +23,8 @@ message NullDefaultTest {
 	string nullString = 1;
 	string customInspectionString = 2;
 	PrimitiveTest defaultPrimitives = 3;
+	int32 nullInt = 4;
+	int32 notNullInt = 5;
 }
 
 message ConverterTest {

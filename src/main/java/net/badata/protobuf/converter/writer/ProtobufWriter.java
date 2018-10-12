@@ -42,6 +42,27 @@ public class ProtobufWriter extends AbstractWriter {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * Note: if the field value of a protobuf object is to be unset, the `clear[FieldName]` method will be called.
+	 */
+	@Override
+	protected void unset(Object destination, FieldResolver fieldResolver) throws WriteException {
+		String clearName = FieldUtils.createProtobufClearName(fieldResolver);
+		try {
+			destinationClass.getMethod(clearName).invoke(destination);
+		} catch (IllegalAccessException e) {
+			throw new WriteException(
+					String.format("Access denied. '%s.%s()'", destinationClass.getName(), clearName));
+		} catch (InvocationTargetException e) {
+			throw new WriteException(
+					String.format("Can't set field value through '%s.%s()'", destinationClass.getName(), clearName));
+		} catch (NoSuchMethodException e) {
+			throw new WriteException(
+					String.format("Setter not found: '%s.%s()'", destinationClass.getName(), clearName));
+		}
+	}
 
 	private void writeValue(final Object destination, final FieldResolver fieldResolver, final Object value) throws WriteException {
 		Class<?> valueClass = extractValueClass(value);

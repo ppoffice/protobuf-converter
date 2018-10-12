@@ -57,6 +57,10 @@ public class MappingResult {
 	 */
 	public enum Result {
 		/**
+		 * Field value is not set.
+		 */
+		UNSET,
+		/**
 		 * Single simple field is mapped.
 		 */
 		MAPPED,

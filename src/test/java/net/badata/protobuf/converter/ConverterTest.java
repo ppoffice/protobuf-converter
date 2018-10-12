@@ -88,6 +88,12 @@ public class ConverterTest {
 		testDomain.setFieldConversionValue(fieldConverterTest);
 		testDomain.setSimpleListValue(Arrays.asList("110"));
 
+		ConverterDomain.NullDefaultTest nullDefaultTest = new ConverterDomain.NullDefaultTest();
+		nullDefaultTest.setCustomInspectionString(testProtobuf.getNullDefaultValue().getCustomInspectionString());
+		nullDefaultTest.setNullInt(1);
+		nullDefaultTest.setNotNullInt(2);
+		testDomain.setNullDefaultValue(nullDefaultTest);
+
 		ConverterDomain.PrimitiveTest primitiveTestItem = new ConverterDomain.PrimitiveTest();
 		primitiveTestItem.setIntValue(-1001);
 		testDomain.setComplexListValue(Arrays.asList(primitiveTestItem));
@@ -206,7 +212,14 @@ public class ConverterTest {
 		Assert.assertEquals(conversionDomain.getEnumString().name(), conversionProto.getEnumString());
 		Assert.assertTrue(conversionDomain.getStringSetValue().remove(conversionProto.getStringSetValue(0)));
 
-		Assert.assertFalse(result.hasNullDefaultValue());
+		ConverterProto.NullDefaultTest nullDefaultProto = result.getNullDefaultValue();
+		Assert.assertEquals(nullDefaultProto.getNullString(),
+				ConverterProto.NullDefaultTest.getDefaultInstance().getNullString());
+		Assert.assertEquals(nullDefaultProto.getCustomInspectionString(),
+				ConverterProto.NullDefaultTest.getDefaultInstance().getCustomInspectionString());
+		Assert.assertFalse(nullDefaultProto.hasDefaultPrimitives());
+		Assert.assertEquals(nullDefaultProto.getNullInt(), 0);
+		Assert.assertEquals(nullDefaultProto.getNotNullInt(), 2);
 
 		Assert.assertEquals(testDomain.getSimpleListValue().get(0), result.getStringListValue(0));
 		Assert.assertEquals(testDomain.getComplexListValue().get(0).getIntValue(),

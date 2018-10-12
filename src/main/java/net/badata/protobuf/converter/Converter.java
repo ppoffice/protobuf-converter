@@ -178,6 +178,9 @@ public final class Converter {
 		DomainWriter fieldWriter = new DomainWriter(mappingResult.getDestination());
 		Object mappedValue = mappingResult.getValue();
 		switch (mappingResult.getCode()) {
+			case UNSET:
+				fieldWriter.unset(fieldResolver);
+				break;
 			case NESTED_MAPPING:
 				fieldWriter.write(fieldResolver, createNestedConverter().toDomain(fieldResolver.getDomainType(),
 						(MessageLite) mappedValue));
@@ -287,6 +290,9 @@ public final class Converter {
 		ProtobufWriter fieldWriter = new ProtobufWriter((MessageLite.Builder) mappingResult.getDestination());
 		Object mappedValue = mappingResult.getValue();
 		switch (mappingResult.getCode()) {
+			case UNSET:
+				fieldWriter.unset(fieldResolver);
+				break;
 			case NESTED_MAPPING:
 				Class<? extends MessageLite> protobufClass = MessageUtils.getMessageType(mappingResult.getDestination(),
 						FieldUtils.createProtobufGetterName(fieldResolver));

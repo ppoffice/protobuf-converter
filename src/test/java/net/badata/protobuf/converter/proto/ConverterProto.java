@@ -1544,6 +1544,16 @@ public final class ConverterProto {
      * <code>.net.badata.protobuf.converter.proto.PrimitiveTest defaultPrimitives = 3;</code>
      */
     net.badata.protobuf.converter.proto.ConverterProto.PrimitiveTestOrBuilder getDefaultPrimitivesOrBuilder();
+
+    /**
+     * <code>int32 nullInt = 4;</code>
+     */
+    int getNullInt();
+
+    /**
+     * <code>int32 notNullInt = 5;</code>
+     */
+    int getNotNullInt();
   }
   /**
    * Protobuf type {@code net.badata.protobuf.converter.proto.NullDefaultTest}
@@ -1560,6 +1570,8 @@ public final class ConverterProto {
     private NullDefaultTest() {
       nullString_ = "";
       customInspectionString_ = "";
+      nullInt_ = 0;
+      notNullInt_ = 0;
     }
 
     @java.lang.Override
@@ -1616,6 +1628,16 @@ public final class ConverterProto {
                 defaultPrimitives_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 32: {
+
+              nullInt_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
+              notNullInt_ = input.readInt32();
               break;
             }
           }
@@ -1731,6 +1753,24 @@ public final class ConverterProto {
       return getDefaultPrimitives();
     }
 
+    public static final int NULLINT_FIELD_NUMBER = 4;
+    private int nullInt_;
+    /**
+     * <code>int32 nullInt = 4;</code>
+     */
+    public int getNullInt() {
+      return nullInt_;
+    }
+
+    public static final int NOTNULLINT_FIELD_NUMBER = 5;
+    private int notNullInt_;
+    /**
+     * <code>int32 notNullInt = 5;</code>
+     */
+    public int getNotNullInt() {
+      return notNullInt_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1752,6 +1792,12 @@ public final class ConverterProto {
       if (defaultPrimitives_ != null) {
         output.writeMessage(3, getDefaultPrimitives());
       }
+      if (nullInt_ != 0) {
+        output.writeInt32(4, nullInt_);
+      }
+      if (notNullInt_ != 0) {
+        output.writeInt32(5, notNullInt_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1769,6 +1815,14 @@ public final class ConverterProto {
       if (defaultPrimitives_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getDefaultPrimitives());
+      }
+      if (nullInt_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, nullInt_);
+      }
+      if (notNullInt_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, notNullInt_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1795,6 +1849,10 @@ public final class ConverterProto {
         result = result && getDefaultPrimitives()
             .equals(other.getDefaultPrimitives());
       }
+      result = result && (getNullInt()
+          == other.getNullInt());
+      result = result && (getNotNullInt()
+          == other.getNotNullInt());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1814,6 +1872,10 @@ public final class ConverterProto {
         hash = (37 * hash) + DEFAULTPRIMITIVES_FIELD_NUMBER;
         hash = (53 * hash) + getDefaultPrimitives().hashCode();
       }
+      hash = (37 * hash) + NULLINT_FIELD_NUMBER;
+      hash = (53 * hash) + getNullInt();
+      hash = (37 * hash) + NOTNULLINT_FIELD_NUMBER;
+      hash = (53 * hash) + getNotNullInt();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1953,6 +2015,10 @@ public final class ConverterProto {
           defaultPrimitives_ = null;
           defaultPrimitivesBuilder_ = null;
         }
+        nullInt_ = 0;
+
+        notNullInt_ = 0;
+
         return this;
       }
 
@@ -1982,6 +2048,8 @@ public final class ConverterProto {
         } else {
           result.defaultPrimitives_ = defaultPrimitivesBuilder_.build();
         }
+        result.nullInt_ = nullInt_;
+        result.notNullInt_ = notNullInt_;
         onBuilt();
         return result;
       }
@@ -2033,6 +2101,12 @@ public final class ConverterProto {
         }
         if (other.hasDefaultPrimitives()) {
           mergeDefaultPrimitives(other.getDefaultPrimitives());
+        }
+        if (other.getNullInt() != 0) {
+          setNullInt(other.getNullInt());
+        }
+        if (other.getNotNullInt() != 0) {
+          setNotNullInt(other.getNotNullInt());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2314,6 +2388,58 @@ public final class ConverterProto {
           defaultPrimitives_ = null;
         }
         return defaultPrimitivesBuilder_;
+      }
+
+      private int nullInt_ ;
+      /**
+       * <code>int32 nullInt = 4;</code>
+       */
+      public int getNullInt() {
+        return nullInt_;
+      }
+      /**
+       * <code>int32 nullInt = 4;</code>
+       */
+      public Builder setNullInt(int value) {
+        
+        nullInt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 nullInt = 4;</code>
+       */
+      public Builder clearNullInt() {
+        
+        nullInt_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int notNullInt_ ;
+      /**
+       * <code>int32 notNullInt = 5;</code>
+       */
+      public int getNotNullInt() {
+        return notNullInt_;
+      }
+      /**
+       * <code>int32 notNullInt = 5;</code>
+       */
+      public Builder setNotNullInt(int value) {
+        
+        notNullInt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 notNullInt = 5;</code>
+       */
+      public Builder clearNotNullInt() {
+        
+        notNullInt_ = 0;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5384,31 +5510,32 @@ public final class ConverterProto {
       "atValue\030\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014bo" +
       "oleanValue\030\005 \001(\010\"R\n\022FieldConverterTest\022\022" +
       "\n\nenumString\030\001 \001(\t\022\020\n\010dateLong\030\002 \001(\003\022\026\n\016" +
-      "stringSetValue\030\003 \003(\t\"\224\001\n\017NullDefaultTest" +
+      "stringSetValue\030\003 \003(\t\"\271\001\n\017NullDefaultTest" +
       "\022\022\n\nnullString\030\001 \001(\t\022\036\n\026customInspection" +
       "String\030\002 \001(\t\022M\n\021defaultPrimitives\030\003 \001(\0132" +
       "2.net.badata.protobuf.converter.proto.Pr" +
-      "imitiveTest\"\353\005\n\rConverterTest\022\020\n\010intValu" +
-      "e\030\001 \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfloatValue" +
-      "\030\003 \001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014booleanVa" +
-      "lue\030\005 \001(\010\022\023\n\013stringValue\030\006 \001(\t\022J\n\016primit" +
-      "iveValue\030\007 \001(\01322.net.badata.protobuf.con" +
-      "verter.proto.PrimitiveTest\022U\n\024fieldConve" +
-      "rsionValue\030\010 \001(\01327.net.badata.protobuf.c" +
-      "onverter.proto.FieldConverterTest\022N\n\020nul" +
-      "lDefaultValue\030\t \001(\01324.net.badata.protobu" +
-      "f.converter.proto.NullDefaultTest\022\027\n\017str" +
-      "ingListValue\030\n \003(\t\022L\n\020complexListValue\030\013" +
-      " \003(\01322.net.badata.protobuf.converter.pro" +
-      "to.PrimitiveTest\022K\n\017complexSetValue\030\014 \003(" +
+      "imitiveTest\022\017\n\007nullInt\030\004 \001(\005\022\022\n\nnotNullI" +
+      "nt\030\005 \001(\005\"\353\005\n\rConverterTest\022\020\n\010intValue\030\001" +
+      " \001(\005\022\021\n\tlongValue\030\002 \001(\003\022\022\n\nfloatValue\030\003 " +
+      "\001(\002\022\023\n\013doubleValue\030\004 \001(\001\022\024\n\014booleanValue" +
+      "\030\005 \001(\010\022\023\n\013stringValue\030\006 \001(\t\022J\n\016primitive" +
+      "Value\030\007 \001(\01322.net.badata.protobuf.conver" +
+      "ter.proto.PrimitiveTest\022U\n\024fieldConversi" +
+      "onValue\030\010 \001(\01327.net.badata.protobuf.conv" +
+      "erter.proto.FieldConverterTest\022N\n\020nullDe" +
+      "faultValue\030\t \001(\01324.net.badata.protobuf.c" +
+      "onverter.proto.NullDefaultTest\022\027\n\017string" +
+      "ListValue\030\n \003(\t\022L\n\020complexListValue\030\013 \003(" +
       "\01322.net.badata.protobuf.converter.proto." +
-      "PrimitiveTest\022Z\n\036complexNullableCollecti" +
-      "onValue\030\r \003(\01322.net.badata.protobuf.conv" +
-      "erter.proto.PrimitiveTest\022\022\n\nbytesValue\030" +
-      "\016 \001(\014\022J\n\016recursiveValue\030\017 \001(\01322.net.bada" +
-      "ta.protobuf.converter.proto.ConverterTes" +
-      "tB5\n#net.badata.protobuf.converter.proto" +
-      "B\016ConverterProtob\006proto3"
+      "PrimitiveTest\022K\n\017complexSetValue\030\014 \003(\01322" +
+      ".net.badata.protobuf.converter.proto.Pri" +
+      "mitiveTest\022Z\n\036complexNullableCollectionV" +
+      "alue\030\r \003(\01322.net.badata.protobuf.convert" +
+      "er.proto.PrimitiveTest\022\022\n\nbytesValue\030\016 \001" +
+      "(\014\022J\n\016recursiveValue\030\017 \001(\01322.net.badata." +
+      "protobuf.converter.proto.ConverterTestB5" +
+      "\n#net.badata.protobuf.converter.protoB\016C" +
+      "onverterProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5439,7 +5566,7 @@ public final class ConverterProto {
     internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_net_badata_protobuf_converter_proto_NullDefaultTest_descriptor,
-        new java.lang.String[] { "NullString", "CustomInspectionString", "DefaultPrimitives", });
+        new java.lang.String[] { "NullString", "CustomInspectionString", "DefaultPrimitives", "NullInt", "NotNullInt", });
     internal_static_net_badata_protobuf_converter_proto_ConverterTest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_net_badata_protobuf_converter_proto_ConverterTest_fieldAccessorTable = new
