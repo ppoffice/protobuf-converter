@@ -1,0 +1,23 @@
+syntax = "proto2";
+
+package net.badata.protobuf.converter.proto;
+
+option java_package = "net.badata.protobuf.converter.proto";
+option java_outer_classname = "Proto2Proto";
+
+
+message Proto2NestedTest {
+    optional string stringValue = 1;
+}
+
+message Proto2MappingTest {
+    optional int32 intValue = 1;
+    optional int64 longValue = 2;
+    optional float floatValue = 3;
+    optional double doubleValue = 4;
+    optional bool booleanValue = 5;
+    optional string stringValue = 6;
+    optional Proto2NestedTest nestedValue = 7;
+    repeated string stringListValue = 8;
+    repeated Proto2NestedTest nestedListValue = 9;
+}
