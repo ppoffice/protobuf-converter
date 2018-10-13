@@ -2,6 +2,7 @@ package net.badata.protobuf.converter.utils;
 
 import net.badata.protobuf.converter.annotation.ProtoClass;
 import net.badata.protobuf.converter.annotation.ProtoClasses;
+import net.badata.protobuf.converter.exception.InvocationException;
 import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.type.TypeConverter;
 
@@ -73,10 +74,24 @@ public final class FieldUtils {
 	 * @return Protobuf field getter name.
 	 */
 	public static String createProtobufHasserName(final FieldResolver fieldResolver) {
-		if (isCollectionType(fieldResolver.getProtobufType())) {
-			return null;
-		}
 		return StringUtils.createMethodName(HASSER_PREFIX, fieldResolver.getProtobufName());
+	}
+
+	/**
+	 * Test if the value of a field is set for a protobuf.
+	 *
+	 * @param fieldResolver Field the be tested.
+	 * @param protobuf      The protobuf object of which the field value is checked.
+	 * @return If the protobuf object has the field value set.
+	 * @throws InvocationException throws if there is any error invoking the "has" method.
+	 */
+	public static boolean isProtobufHasFieldValue(final FieldResolver fieldResolver, final Object protobuf)
+			throws InvocationException {
+		if (isCollectionType(fieldResolver.getProtobufType())) {
+			return true;
+		}
+		String methodName = createProtobufHasserName(fieldResolver);
+		return (boolean) MethodUtils.invokeMethod(protobuf, methodName);
 	}
 
 	/**
@@ -94,6 +109,20 @@ public final class FieldUtils {
 	}
 
 	/**
+	 * Get the value of a field for a protobuf.
+	 *
+	 * @param fieldResolver Field whose value is to be retrieved.
+	 * @param protobuf      The protobuf object of which the field value is to be retrieved.
+	 * @return Value of the specified field of the protobuf.
+	 * @throws InvocationException throws if there is any error invoking the "get" method.
+	 */
+	public static Object getProtobufFieldValue(final FieldResolver fieldResolver, final Object protobuf)
+			throws InvocationException {
+		String methodName = createProtobufGetterName(fieldResolver);
+		return MethodUtils.invokeMethod(protobuf, methodName);
+	}
+
+	/**
 	 * Create protobuf setter name for domain field.
 	 *
 	 * @param fieldResolver Domain object field resolver.
@@ -107,6 +136,51 @@ public final class FieldUtils {
 	}
 
 	/**
+	 * Get the appropriate class of the value for the protobuf field.
+	 *
+	 * @param value Value to be set to the protobuf field.
+	 * @return The appropriate class for the value.
+	 */
+	private static Class<?> extractValueClass(final Object value) {
+		Class<?> valueClass = value.getClass();
+		if (Primitives.isWrapperType(valueClass)) {
+			return Primitives.unwrap(valueClass);
+		}
+		if (Collection.class.isAssignableFrom(valueClass)) {
+			return Iterable.class;
+		}
+		return valueClass;
+	}
+
+	/**
+	 * Set the value of a field for a protobuf.
+	 *
+	 * @param fieldResolver Field whose value is to be set.
+	 * @param protobuf      The protobuf object of which the field value is to be set.
+	 * @param value         The value of the field to be set.
+	 * @throws InvocationException throws if there is any error invoking the "set" method.
+	 */
+	public static void setProtobufFieldValue(final FieldResolver fieldResolver, final Object protobuf,
+			final Object value) throws InvocationException {
+		Class<?> valueClass = extractValueClass(value);
+		String methodName = createProtobufSetterName(fieldResolver);
+		while (valueClass != null) {
+			try {
+				protobuf.getClass().getMethod(methodName, valueClass);
+				break; // break the loop if the protobuf class has this method
+			} catch (NoSuchMethodException e) {
+				if (valueClass.getSuperclass() != null) {
+					valueClass = valueClass.getSuperclass();
+				} else {
+					throw new InvocationException(String.format("Method not found. '%s.%s(%s)'",
+							protobuf.getClass().getName(), methodName, valueClass.getName()));
+				}
+			}
+		}
+		MethodUtils.invokeMethod(protobuf, methodName, valueClass, value);
+	}
+
+	/**
 	 * Create protobuf clear method name for domain field.
 	 *
 	 * @param fieldResolver Domain object field resolver.
@@ -114,6 +188,19 @@ public final class FieldUtils {
 	 */
 	public static String createProtobufClearName(final FieldResolver fieldResolver) {
 		return StringUtils.createMethodName(CLEAR_PREFIX, fieldResolver.getProtobufName());
+	}
+
+	/**
+	 * Clear/unset the value of a field for a protobuf.
+	 *
+	 * @param fieldResolver Field whose value is to be cleared.
+	 * @param protobuf      The protobuf object of which the field value is to be cleared.
+	 * @throws InvocationException throws if there is any error invoking the "clear" method.
+	 */
+	public static void clearProtobufFieldValue(final FieldResolver fieldResolver, final Object protobuf)
+			throws InvocationException {
+		String methodName = createProtobufClearName(fieldResolver);
+		MethodUtils.invokeMethod(protobuf, methodName);
 	}
 
 	/**
@@ -130,6 +217,20 @@ public final class FieldUtils {
 	}
 
 	/**
+	 * Get the value of a field for a domain object.
+	 *
+	 * @param fieldResolver Field whose value is to be retrieved.
+	 * @param domain        The domain object of which the field value is to be retrieved.
+	 * @return Value of the specified field of the domain.
+	 * @throws InvocationException throws if there is any error invoking the "get" method.
+	 */
+	public static Object getDomainFieldValue(final FieldResolver fieldResolver, final Object domain)
+			throws InvocationException {
+		String methodName = createDomainGetterName(fieldResolver);
+		return MethodUtils.invokeMethod(domain, methodName);
+	}
+
+	/**
 	 * Create domain field setter name.
 	 *
 	 * @param fieldResolver Domain object field resolver.
@@ -137,6 +238,20 @@ public final class FieldUtils {
 	 */
 	public static String createDomainSetterName(final FieldResolver fieldResolver) {
 		return StringUtils.createMethodName(SETTER_PREFIX, fieldResolver.getDomainName());
+	}
+
+	/**
+	 * Set the value of a field for a domain object.
+	 *
+	 * @param fieldResolver Field whose value is to be set.
+	 * @param domain        The domain object of which the field value is to be set.
+	 * @param value         The value of the field to be set.
+	 * @throws InvocationException throws if there is any error invoking the "set" method.
+	 */
+	public static void setDomainFieldValue(final FieldResolver fieldResolver, final Object domain, final Object value)
+			throws InvocationException {
+		String methodName = createDomainSetterName(fieldResolver);
+		MethodUtils.invokeMethod(domain, methodName, fieldResolver.getDomainType(), value);
 	}
 
 	/**

@@ -1,12 +1,11 @@
 package net.badata.protobuf.converter.writer;
 
+import net.badata.protobuf.converter.exception.InvocationException;
 import net.badata.protobuf.converter.exception.WriteException;
 import net.badata.protobuf.converter.inspection.DefaultValue;
 import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.type.TypeConverter;
 import net.badata.protobuf.converter.utils.FieldUtils;
-
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * Writes data to the domain instance.
@@ -16,8 +15,6 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class DomainWriter extends AbstractWriter {
 
-	private final Class<?> destinationClass;
-
 	/**
 	 * Constructor.
 	 *
@@ -25,7 +22,6 @@ public class DomainWriter extends AbstractWriter {
 	 */
 	public DomainWriter(final Object destination) {
 		super(destination);
-		destinationClass = destination.getClass();
 	}
 
 	/**
@@ -51,18 +47,10 @@ public class DomainWriter extends AbstractWriter {
 	}
 
 	private void writeValue(final Object destination,  final FieldResolver fieldResolver, final Object value) throws WriteException {
-		String setterName = FieldUtils.createDomainSetterName(fieldResolver);
 		try {
-			destinationClass.getMethod(setterName, fieldResolver.getDomainType()).invoke(destination, value);
-		} catch (IllegalAccessException e) {
-			throw new WriteException(
-					String.format("Access denied. '%s.%s()'", destinationClass.getName(), setterName));
-		} catch (InvocationTargetException e) {
-			throw new WriteException(
-					String.format("Can't set field value through '%s.%s()'", destinationClass.getName(), setterName));
-		} catch (NoSuchMethodException e) {
-			throw new WriteException(
-					String.format("Setter not found: '%s.%s()'", destinationClass.getName(), setterName));
+			FieldUtils.setDomainFieldValue(fieldResolver, destination, value);
+		} catch (InvocationException e) {
+			throw new WriteException(e);
 		}
 	}
 }
