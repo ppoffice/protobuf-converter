@@ -2,7 +2,6 @@ package net.badata.protobuf.converter;
 
 import net.badata.protobuf.converter.domain.Proto2Domain;
 import net.badata.protobuf.converter.exception.MappingException;
-import net.badata.protobuf.converter.mapping.DefaultMapperImpl;
 import net.badata.protobuf.converter.mapping.MappingResult;
 import net.badata.protobuf.converter.mapping.Proto2MapperImpl;
 import net.badata.protobuf.converter.proto.MappingProto;
@@ -23,12 +22,13 @@ import static net.badata.protobuf.converter.mapping.MappingResult.Result;
  */
 public class Proto2MapperTest {
 
-	private DefaultMapperImpl mapper;
+	private Proto2MapperImpl mapper;
 	private FieldResolverFactory fieldResolverFactory;
 	private Proto2Domain.Test testDomain;
 	private Proto2Proto.Proto2MappingTest testProtobuf;
 	private Proto2Domain.Test unsetTestDomain;
 	private Proto2Proto.Proto2MappingTest unsetTestProtobuf;
+	private Proto2Domain.Test zeroValueTestDomain;
 
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
@@ -41,6 +41,7 @@ public class Proto2MapperTest {
 		createTestProtobuf();
 		createUnsetTestDomain();
 		createUnsetTestProtobuf();
+		createZeroValueTestDomain();
 	}
 
 	@After
@@ -50,6 +51,7 @@ public class Proto2MapperTest {
 		testDomain = null;
 		unsetTestProtobuf = null;
 		unsetTestDomain = null;
+		zeroValueTestDomain = null;
 	}
 
 	private void createTestProtobuf() {
@@ -89,6 +91,16 @@ public class Proto2MapperTest {
 
 	private void createUnsetTestProtobuf() {
 		unsetTestProtobuf =  Proto2Proto.Proto2MappingTest.newBuilder().build();
+	}
+
+	private void createZeroValueTestDomain() {
+		zeroValueTestDomain = new Proto2Domain.Test();
+		zeroValueTestDomain.setBooleanValue(false);
+		zeroValueTestDomain.setFloatValue(0f);
+		zeroValueTestDomain.setDoubleValue(0.0);
+		zeroValueTestDomain.setIntValue(0);
+		zeroValueTestDomain.setLongValue(0L);
+		zeroValueTestDomain.setStringValue("");
 	}
 
 	@Test
@@ -267,4 +279,15 @@ public class Proto2MapperTest {
 		testMappingResult(result, Result.UNSET, null, protobufBuilder);
 	}
 
+	@Test
+	public void testZeroValueDomainToProtobuf() throws Exception {
+		exception = ExpectedException.none();
+        Proto2Proto.Proto2MappingTest protobuf = Converter.create().toProtobuf(Proto2Proto.Proto2MappingTest.class, zeroValueTestDomain);
+        Assert.assertTrue(protobuf.hasBooleanValue());
+        Assert.assertTrue(protobuf.hasDoubleValue());
+        Assert.assertTrue(protobuf.hasFloatValue());
+        Assert.assertTrue(protobuf.hasIntValue());
+        Assert.assertTrue(protobuf.hasLongValue());
+        Assert.assertTrue(protobuf.hasStringValue());
+    }
 }

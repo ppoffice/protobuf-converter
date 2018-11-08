@@ -2,6 +2,7 @@ package net.badata.protobuf.converter.domain;
 
 import net.badata.protobuf.converter.annotation.ProtoClass;
 import net.badata.protobuf.converter.annotation.ProtoField;
+import net.badata.protobuf.converter.mapping.Proto2MapperImpl;
 import net.badata.protobuf.converter.proto.Proto2Proto;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public class Proto2Domain {
 
-    @ProtoClass(value = Proto2Proto.Proto2MappingTest.class)
+    @ProtoClass(value = Proto2Proto.Proto2MappingTest.class, mapper = Proto2MapperImpl.class)
     public static class Test {
 
         @ProtoField

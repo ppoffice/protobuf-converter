@@ -3,6 +3,9 @@ package net.badata.protobuf.converter.mapping;
 import com.google.protobuf.MessageLite;
 import net.badata.protobuf.converter.exception.InvocationException;
 import net.badata.protobuf.converter.exception.MappingException;
+import net.badata.protobuf.converter.inspection.DefaultNullValueInspectorImpl;
+import net.badata.protobuf.converter.inspection.NullValueInspector;
+import net.badata.protobuf.converter.inspection.Proto2NullValueInspectorImpl;
 import net.badata.protobuf.converter.resolver.FieldResolver;
 import net.badata.protobuf.converter.utils.FieldUtils;
 
@@ -14,7 +17,7 @@ import net.badata.protobuf.converter.utils.FieldUtils;
  *
  * @author ppoffice
  */
-public class Proto2MapperImpl extends DefaultMapperImpl {
+public class Proto2MapperImpl implements Mapper {
     /**
      * {@inheritDoc}
      */
@@ -39,5 +42,33 @@ public class Proto2MapperImpl extends DefaultMapperImpl {
             return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, protobufFieldValue, domain);
         }
         return new MappingResult(MappingResult.Result.MAPPED, protobufFieldValue, domain);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public <T extends MessageLite.Builder> MappingResult mapToProtobufField(final FieldResolver fieldResolver,
+            final Object domain, final T protobufBuilder) throws MappingException {
+        Object domainFieldValue;
+        try {
+            domainFieldValue = FieldUtils.getDomainFieldValue(fieldResolver, domain);
+        } catch (InvocationException e) {
+            throw new MappingException(e);
+        }
+        NullValueInspector nullInspector = fieldResolver.getNullValueInspector();
+        if (nullInspector instanceof DefaultNullValueInspectorImpl) {
+            nullInspector = new Proto2NullValueInspectorImpl();
+        }
+        if (nullInspector.isNull(domainFieldValue)) {
+            return new MappingResult(MappingResult.Result.UNSET, null, protobufBuilder);
+        }
+        if (FieldUtils.isComplexType(fieldResolver.getField())) {
+            return new MappingResult(MappingResult.Result.NESTED_MAPPING, domainFieldValue, protobufBuilder);
+        }
+        if (FieldUtils.isCollectionType(fieldResolver.getField())) {
+            return new MappingResult(MappingResult.Result.COLLECTION_MAPPING, domainFieldValue, protobufBuilder);
+        }
+        return new MappingResult(MappingResult.Result.MAPPED, domainFieldValue, protobufBuilder);
     }
 }
